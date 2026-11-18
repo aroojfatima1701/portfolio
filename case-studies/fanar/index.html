@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Fanar Estates Case Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Case study: brand identity, website and admin panel for Fanar Estates, a concept luxury real estate agency in Dubai. By Arooj Fatima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&family=Reem+Kufi:wght@600&display=swap">
+<style>
+/* Layout: an editorial long read in the project's own brand. Navy opening band, then alternating
+   pearl and white chapters; screenshots run wider than the text column to let the work lead. */
+:root {
+  --navy: #0B1F3A; --night: #06121F; --brass: #8C6A35; --lantern: #C9A66B;
+  --pearl: #F2F4F7; --white: #FFFFFF; --mist: #C9D1DC; --stone: #5E6878; --ink-soft: #AEB8C6;
+  --display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --body: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --arabic: 'Reem Kufi', 'Noto Kufi Arabic', Tahoma, sans-serif;
+  --text: 680px; --wide: 1180px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--white); color: var(--navy); font-family: var(--body); font-size: 17px; line-height: 1.65; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--lantern); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.band { padding-block: clamp(64px, 9vw, 128px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band--pearl { background: var(--pearl); }
+.band--navy { background: var(--navy); color: var(--pearl); }
+.band--night { background: var(--night); color: var(--pearl); }
+.wide { max-width: var(--wide); margin: 0 auto; }
+.col { max-width: var(--text); margin: 0 auto; }
+.stack { display: grid; gap: 22px; }
+
+.eyebrow { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--stone); }
+.band--navy .eyebrow, .band--night .eyebrow { color: var(--lantern); }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; margin: 0; text-wrap: balance; line-height: 1.05; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.6rem, 1.4rem + 5vw, 5.4rem); }
+h2 { font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.6rem); }
+h3 { font-size: 1.7rem; line-height: 1.15; }
+h1 em, h2 em { font-style: italic; color: var(--brass); }
+.band--navy h1 em, .band--navy h2 em, .band--night h2 em { color: var(--lantern); }
+p { margin: 0; }
+.lede { font-size: clamp(1.15rem, 1rem + .5vw, 1.35rem); color: var(--stone); }
+.band--navy .lede, .band--night .lede { color: var(--mist); }
+.muted { color: var(--stone); }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Opening */
+.open { padding-top: clamp(40px, 6vw, 72px); }
+.open__mark { display: flex; align-items: center; gap: 16px; margin-bottom: clamp(40px, 6vw, 72px); }
+.open__mark .ar { font-family: var(--arabic); font-weight: 600; font-size: 34px; color: var(--lantern); line-height: 1; }
+.open__mark .rule { width: 1px; height: 36px; background: var(--lantern); }
+.open__mark .en { font-family: var(--display); font-weight: 600; font-size: 30px; letter-spacing: .32em; }
+.open__mark .by { margin-left: auto; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+.open__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: end; }
+.open__grid .stack { gap: 26px; }
+.facts { margin: 0; display: grid; gap: 0; border-top: 1px solid rgba(201, 209, 220, .25); }
+.facts div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(201, 209, 220, .25); }
+.facts dt { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--lantern); padding-top: 3px; }
+.facts dd { margin: 0; color: var(--pearl); }
+@media (max-width: 860px) { .open__grid { grid-template-columns: minmax(0, 1fr); } .open__mark .by { display: none; } }
+.hero-shot { margin-top: clamp(48px, 7vw, 88px); }
+
+/* Screens */
+.shot { border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(6, 18, 31, .18), 0 0 0 1px rgba(11, 31, 58, .06); background: var(--white); max-width: 100%; }
+.band--navy .shot, .band--night .shot { box-shadow: 0 30px 80px rgba(0, 0, 0, .45); }
+.shot__bar { display: flex; gap: 6px; padding: 10px 14px; background: #E8ECF1; }
+.shot__bar i { width: 10px; height: 10px; border-radius: 50%; background: #C3CAD4; }
+.band--navy .shot__bar, .band--night .shot__bar { background: #142C4C; }
+.band--navy .shot__bar i, .band--night .shot__bar i { background: #2C4566; }
+figure { margin: 0; display: grid; gap: 14px; min-width: 0; }
+figcaption { font-size: 14px; color: var(--stone); max-width: 62ch; }
+.band--navy figcaption, .band--night figcaption { color: var(--ink-soft); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+@media (max-width: 860px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+@media (max-width: 860px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.phone { border-radius: 28px; padding: 8px; background: var(--night); box-shadow: 0 24px 50px rgba(6, 18, 31, .25); }
+.phone img { border-radius: 21px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+
+/* Split chapter */
+.chapter { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 6vw, 96px); align-items: start; }
+.chapter > .stack { position: sticky; top: 32px; }
+@media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); } .chapter > .stack { position: static; } }
+
+/* Lists */
+.points { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--mist); }
+.points li { padding: 18px 0; border-bottom: 1px solid var(--mist); display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 8px 28px; }
+.points b { font-weight: 500; }
+.points span { color: var(--stone); }
+@media (max-width: 640px) { .points li { grid-template-columns: minmax(0, 1fr); } }
+.band--navy .points, .band--navy .points li { border-color: rgba(201, 209, 220, .25); }
+.band--navy .points span { color: var(--mist); }
+
+/* Research table */
+.table-wrap { overflow-x: auto; }
+.refs { width: 100%; border-collapse: collapse; min-width: 560px; }
+.refs th { text-align: left; font-weight: 500; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--stone); padding: 0 20px 12px 0; border-bottom: 1px solid var(--mist); }
+.refs td { padding: 16px 20px 16px 0; border-bottom: 1px solid var(--mist); vertical-align: top; }
+.refs td:first-child { font-family: var(--display); font-size: 1.35rem; white-space: nowrap; }
+
+/* Brand */
+.concepts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .concepts { grid-template-columns: minmax(0, 1fr); } }
+.concept { background: var(--navy); color: var(--pearl); min-height: 210px; display: grid; place-items: center; text-align: center; padding: 28px 18px; position: relative; }
+.concept small { position: absolute; left: 14px; top: 12px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+.concept.is-chosen { outline: 2px solid var(--lantern); outline-offset: 4px; }
+.concept.is-chosen small { color: var(--lantern); }
+.wm { display: grid; justify-items: center; gap: 10px; }
+.wm .ar { font-family: var(--arabic); font-weight: 600; font-size: 40px; color: var(--lantern); line-height: 1; }
+.wm .line { width: 40px; height: 1px; background: var(--lantern); }
+.wm .en { font-family: var(--display); font-weight: 600; font-size: 32px; letter-spacing: .34em; padding-left: .34em; line-height: 1; }
+.wm .sub { font-size: 10px; letter-spacing: .5em; padding-left: .5em; color: var(--mist); }
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sw { display: grid; gap: 8px; }
+.sw i { display: block; aspect-ratio: 4 / 3; border: 1px solid rgba(11, 31, 58, .08); max-width: 100%; }
+.sw b { font-weight: 500; font-size: 15px; }
+.sw span { font-size: 13px; color: var(--stone); font-variant-numeric: tabular-nums; }
+.decision { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.decision > div { background: var(--navy); color: var(--pearl); padding: 26px; display: grid; gap: 10px; }
+.decision h3 { font-size: 2.2rem; }
+.decision .gold em { color: var(--lantern); font-style: italic; }
+.decision .silver em { color: #C3CAD4; font-style: italic; }
+.decision .tag { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.decision .gold .tag { color: var(--lantern); }
+.decision .silver .tag { color: var(--ink-soft); }
+.decision p { color: var(--mist); font-size: 15px; }
+@media (max-width: 640px) { .decision { grid-template-columns: minmax(0, 1fr); } }
+.type { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .type { grid-template-columns: minmax(0, 1fr); } }
+.type > div { border-top: 1px solid var(--mist); padding-top: 18px; display: grid; gap: 6px; }
+.type .spec { font-size: 2rem; line-height: 1.15; }
+.type small { color: var(--stone); font-size: 14px; }
+
+/* Numbers */
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(201, 209, 220, .25); }
+.nums div { padding: 26px 20px 0 0; display: grid; gap: 4px; }
+.nums b { font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem); color: var(--lantern); line-height: 1; }
+.nums span { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--mist); }
+@media (max-width: 760px) { .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; } }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { border: 1px solid var(--mist); padding: 6px 14px; font-size: 14px; }
+.band--navy .chips span, .band--night .chips span { border-color: rgba(201, 209, 220, .35); color: var(--pearl); }
+
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; min-height: 50px; padding: 0 26px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; border: 1px solid currentColor; }
+.btn--gold { background: var(--lantern); color: var(--navy); border-color: var(--lantern); }
+.btn--gold:hover { background: #D8B985; }
+.btn:not(.btn--gold):hover { background: var(--pearl); color: var(--navy); }
+.note { font-size: 14px; color: var(--stone); }
+.band--night .note { color: var(--ink-soft); }
+.credits { font-size: 13px; color: var(--ink-soft); display: grid; gap: 4px; }
+</style>
+
+</head>
+<body>
+<header class="band band--navy open">
+  <div class="wide">
+    <div class="open__mark">
+      <span class="ar" lang="ar" dir="rtl">فنار</span><span class="rule" aria-hidden="true"></span><span class="en">FANAR</span>
+      <span class="by">Case study · Arooj Fatima</span>
+    </div>
+    <div class="open__grid">
+      <div class="stack">
+        <span class="eyebrow">Brand identity · Website · Admin panel</span>
+        <h1>A luxury agency that <em>guides you home</em></h1>
+        <p class="lede">Fanar Estates is a concept real estate agency in Dubai. I designed its name, bilingual identity and website, then built the site and an interactive admin panel designed to run the agency without Shopify-style platform fees.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Brand designer, UI/UX designer and developer</dd></div>
+        <div><dt>Scope</dt><dd>Naming, logo, colour and type, 39-page website, admin panel with CRM</dd></div>
+        <div><dt>Built with</dt><dd>React, TypeScript, Next.js structure, Laravel API spec</dd></div>
+        <div><dt>Year</dt><dd>2026 · self-initiated concept</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-shot">
+      <div class="shot"><div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="shots/home-hero.jpg" alt="Fanar Estates homepage: Downtown Dubai skyline video with the headline Let us guide you home and a Buy, Rent, Off-plan search."></div>
+      <figcaption>The homepage opens on a three-scene video: Downtown at sunrise, beachfront villas on the Palm, then a living room. The search stays fixed while the scenes change.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="band">
+  <div class="col stack">
+    <span class="eyebrow">The brief</span>
+    <h2>Look established on <em>day one</em></h2>
+    <p class="lede">A Dubai agency competes with brands that have spent years building trust. Buyers are often abroad, comparing agents on their phones and deciding in minutes who looks credible enough to call.</p>
+    <p>I set three goals. The brand had to feel premium and local at once. The website had to answer the questions Dubai buyers actually ask: Golden Visa eligibility, payment plans, service charges, permit numbers. And the agency needed its own system for leads, listings and viewings instead of renting one.</p>
+  </div>
+</section>
+
+<section class="band band--pearl">
+  <div class="wide stack" style="gap: 36px">
+    <div class="col stack" style="margin: 0">
+      <span class="eyebrow">Research</span>
+      <h2>What Dubai buyers <em>expect</em></h2>
+      <p class="lede">I reviewed the leading agencies in Dubai and the USA and noted the patterns buyers already trust. I kept those patterns and built Fanar's own identity on top of them.</p>
+    </div>
+    <ul class="points">
+      <li><b>Proof in the first screen</b><span>A photographic hero with the search on it and key numbers directly below.</span></li>
+      <li><b>Quiet luxury</b><span>Deep navy, generous white space and serif headlines, the visual language of high-end property.</span></li>
+      <li><b>A clear path</b><span>Pages that move from search, to reasons to trust the agency, to an easy way to make contact.</span></li>
+      <li><b>A signature detail</b><span>One italic word in every headline, so the brand is recognisable at a glance.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Brand</span>
+      <h2>Fanar means <em>lighthouse</em></h2>
+      <p class="muted">The name gives the agency its story: a steady light that guides people home. I tested names for both markets and chose one that is easy to say in English and meaningful in Arabic.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <div class="stack" style="gap: 16px">
+        <h3>Three logo directions</h3>
+        <div class="concepts">
+          <div class="concept"><small>A · The Beam</small>
+            <svg width="92" height="92" viewBox="0 0 120 120" role="img" aria-label="Lighthouse mark whose beams form the letter F"><polygon points="45,12 54,23 45,34 36,23" fill="#C9A66B"/><rect x="40" y="38" width="10" height="72" fill="#F2F4F7"/><polygon points="56,22 108,12 108,28 56,28" fill="#C9A66B"/><polygon points="56,52 92,46 92,60 56,58" fill="#C9A66B" opacity=".75"/></svg>
+          </div>
+          <div class="concept"><small>B · The Arch</small>
+            <svg width="92" height="92" viewBox="0 0 120 120" role="img" aria-label="Arabic arch doorway with a light inside"><path d="M24 110 V54 C24 32 42 18 60 8 C78 18 96 32 96 54 V110" fill="none" stroke="#F2F4F7" stroke-width="5"/><path d="M38 110 V60 C38 46 48 36 60 29 C72 36 82 46 82 60 V110" fill="none" stroke="#C9A66B" stroke-width="2"/><polygon points="60,58 67,68 60,78 53,68" fill="#C9A66B"/><rect x="14" y="108" width="92" height="4" fill="#F2F4F7"/></svg>
+          </div>
+          <div class="concept is-chosen"><small>C · Chosen</small>
+            <div class="wm"><span class="ar" lang="ar" dir="rtl">فنار</span><span class="line" aria-hidden="true"></span><span class="en">FANAR</span><span class="sub">ESTATES · DUBAI</span></div>
+          </div>
+        </div>
+        <p class="muted">The bilingual wordmark won. With no symbol it reads as quiet luxury, and pairing Arabic and English shows the brand belongs in Dubai while speaking to international buyers.</p>
+      </div>
+
+      <div class="stack" style="gap: 16px">
+        <h3>Colour</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#0B1F3A"></i><b>Fanar Navy</b><span>#0B1F3A</span></div>
+          <div class="sw"><i style="background:#C9A66B"></i><b>Lantern gold</b><span>#C9A66B</span></div>
+          <div class="sw"><i style="background:#F2F4F7"></i><b>Pearl</b><span>#F2F4F7</span></div>
+          <div class="sw"><i style="background:#5E6878"></i><b>Stone</b><span>#5E6878</span></div>
+        </div>
+        <div class="decision">
+          <div class="gold"><span class="tag">Chosen</span><h3>Guide you <em>home.</em></h3><p>Warm gold against cool navy pulls the eye to the one italic word and the main button. It is the light of the lighthouse.</p></div>
+          <div class="silver"><span class="tag">Tested and rejected</span><h3>Guide you <em>home.</em></h3><p>Silver sat too close to the white text and grey surfaces. The accent disappeared and the brand read as a bank.</p></div>
+        </div>
+      </div>
+
+      <div class="stack" style="gap: 16px">
+        <h3>Type</h3>
+        <div class="type">
+          <div><span class="spec" style="font-family: var(--display)">Homes worth <em style="font-style: italic; color: var(--brass)">coming</em> home to</span><small>Cormorant Garamond for headlines and prices</small></div>
+          <div><span class="spec tabular" style="font-family: var(--body); font-size: 1.35rem; padding-top: .35em">5 bed · 11,200 sq ft</span><small>Jost for text, listings and the admin panel</small></div>
+          <div><span class="spec" style="font-family: var(--arabic); color: var(--brass)" lang="ar" dir="rtl">فنار للعقارات</span><small>Reem Kufi for Arabic, ready for a bilingual site</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--pearl">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack" style="margin: 0">
+      <span class="eyebrow">Website</span>
+      <h2>Designed around how Dubai <em>buys property</em></h2>
+      <p class="lede">Every page answers a question a buyer, tenant or seller in Dubai would ask before they pick up the phone.</p>
+    </div>
+    <figure>
+      <div class="shot"><div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="shots/home-featured.jpg" alt="Featured properties section with four listing cards showing Golden Visa badges, prices and DLD permit numbers." loading="lazy"></div>
+      <figcaption>Listings flag Golden Visa eligibility (AED 2 million and above) and carry their DLD permit number, which Dubai rules require on every property advert.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/search-map.jpg" alt="Search page in map view with community pins showing listing counts and starting prices." loading="lazy"></div>
+        <figcaption>Search with filters, sorting and a map view. Pins group listings by community with the starting price.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/property-calc.jpg" alt="Property page mortgage calculator showing monthly payment, DLD fee, agency fee and total cash needed." loading="lazy"></div>
+        <figcaption>The mortgage calculator follows UAE rules (20% minimum down, 30% above AED 5M) and shows the full cash needed, including the 4% DLD fee.</figcaption>
+      </figure>
+    </div>
+    <figure>
+      <div class="shot"><div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="shots/property-top.jpg" alt="Property page for a Palm Jumeirah villa with gallery, badges, price and the adviser's booking box." loading="lazy"></div>
+      <figcaption>Each property page pairs a full gallery with the adviser's WhatsApp and a booking picker for the next seven days, skipping Saturdays when offices close.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/project.jpg" alt="Off-plan project page with construction progress and a 10, 50, 40 payment plan." loading="lazy"></div>
+        <figcaption>Off-plan pages show construction progress and the payment plan as milestones, and explain that payments sit in DLD escrow.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/community.jpg" alt="Palm Jumeirah community guide with average price per square foot and gross yield." loading="lazy"></div>
+        <figcaption>Community guides give average prices, yields, typical rents and drive times, then list the homes available there.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Rentals the Dubai way</b><span>Yearly rent with the number of cheques the landlord accepts.</span></li>
+      <li><b>Selling, step by step</b><span>Form A, the advertising permit, Form F, the developer NOC and the trustee transfer, explained in plain words.</span></li>
+      <li><b>International buyers</b><span>Prices in AED, USD, GBP or EUR and areas in square feet or metres, remembered per visitor.</span></li>
+      <li><b>WhatsApp first</b><span>Every adviser contact opens WhatsApp with a message that already names the property and permit.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 40px">
+    <div class="col stack" style="margin: 0">
+      <span class="eyebrow">Mobile</span>
+      <h2>Most buyers arrive <em>on a phone</em></h2>
+      <p class="lede">Phones get lighter 720p hero videos, collapsible filters and a fixed WhatsApp and booking bar on property pages.</p>
+    </div>
+    <div class="phones">
+      <div class="phone"><img src="shots/m-home.jpg" alt="Homepage on a phone" loading="lazy"></div>
+      <div class="phone"><img src="shots/m-search.jpg" alt="Search page on a phone" loading="lazy"></div>
+      <div class="phone"><img src="shots/m-property.jpg" alt="Property page on a phone" loading="lazy"></div>
+      <div class="phone"><img src="shots/m-admin.jpg" alt="Admin lead board on a phone" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--navy">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack" style="margin: 0">
+      <span class="eyebrow">Admin panel</span>
+      <h2>Designed to <em>run the agency</em></h2>
+      <p class="lede">Instead of paying monthly for a platform, the agency would own a custom panel: leads, listings, viewings, off-plan projects, team roles, website content and reports in one place.</p>
+      <p class="lede">The admin panel is a fully interactive front end with role-based access, designed to connect to a Laravel API.</p>
+    </div>
+    <figure>
+      <div class="shot"><div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="shots/admin-leads.jpg" alt="Lead pipeline board with columns New, Contacted, Viewing, Negotiating and Won." loading="lazy"></div>
+      <figcaption>The lead pipeline. Advisers drag cards between stages, open a lead to add notes, reassign it or start a WhatsApp chat.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/admin-dashboard.jpg" alt="Admin dashboard with key numbers, a monthly leads chart and pipeline bars." loading="lazy"></div>
+        <figcaption>The dashboard puts this week's numbers first, then trends and the newest leads.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/admin-viewings.jpg" alt="Week calendar of property viewings colour-coded by adviser." loading="lazy"></div>
+        <figcaption>A viewings calendar colour-coded by adviser. The colours were checked for colour-blind readers and always carry a name.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Role-based access</b><span>Admins see everything, managers see the whole team's work, advisers only their own leads, listings and viewings.</span></li>
+      <li><b>Listings with compliance</b><span>A listing cannot be saved without its DLD permit number.</span></li>
+      <li><b>Reports</b><span>Lead sources with win rates, the sales funnel and deals by adviser, so the owner can see which portals pay for themselves.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Build</span>
+      <h2>Fast, findable and <em>easy to use</em></h2>
+      <p class="muted">Built with React and TypeScript in a Next.js structure, so the site loads quickly on any connection, search engines can read every listing, and everyone can use it.</p>
+    </div>
+    <ul class="points">
+      <li><b>Performance</b><span>Hero videos compressed from 50 MB to about 7 MB. Only the current clip loads; the next one loads while it plays.</span></li>
+      <li><b>Rendering</b><span>Pages render on the server first, so content shows before JavaScript loads and search engines can read every listing.</span></li>
+      <li><b>Accessibility</b><span>Labelled forms, keyboard-friendly drawers and galleries, visible focus states, and still images for visitors who prefer reduced motion.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--night">
+  <div class="wide stack" style="gap: 40px">
+    <div class="nums">
+      <div><b class="tabular">39</b><span>Website pages</span></div>
+      <div><b class="tabular">8</b><span>Admin sections</span></div>
+      <div><b class="tabular">3</b><span>User roles</span></div>
+      <div><b class="tabular">2</b><span>Languages in the logo</span></div>
+    </div>
+    <div class="col stack" style="margin: 0">
+      <h2>One designer, <em>logo to launch</em></h2>
+      <p class="lede">I design brands and build the custom websites that run them, admin panel included. If you are hiring, or need the same for your business, I would like to hear from you.</p>
+      <div class="cta">
+        <a class="btn btn--gold" href="../../live/fanar/index.html" target="_blank" rel="noopener">Open the live prototype</a>
+      </div>
+      <p class="note">Fanar Estates is a self-initiated concept. The agency, listings, figures and reviews are sample content. Photography and video from Pexels; adviser photos are placeholders.</p>
+      <div class="credits"><span>Video and photography by Pexels contributors, credited individually in the project's CREDITS file.</span></div>
+    </div>
+  </div>
+</section>
+
+<a href="../../index.html" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(20,22,37,.9);color:#EDEBF7;font:600 13px/1 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;border:1px solid rgba(200,196,255,.3);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);backdrop-filter:blur(8px)">&larr; Arooj&rsquo;s portfolio</a><script>if(window.self!==window.top){var a=document.currentScript.previousElementSibling;if(a)a.remove();}</script>
+</body>
+</html>

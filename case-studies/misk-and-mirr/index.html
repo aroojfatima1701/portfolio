@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Misk &amp; Mirr Case Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Case study: Misk & Mirr, a bilingual English and Arabic Shopify perfume store for the UAE, with a custom theme, scent notes, a scent quiz and full store setup. By Arooj Fatima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap">
+<style>
+/* Misk & Mirr case study, in the store's own brand: blush pages, oxblood bands and the arch from the hero frame.
+   One light look on purpose, like the storefront. */
+:root {
+  --blush: #FBF6F3; --rose: #F2DFD8; --ox: #4F1015; --ox-deep: #2E0A0E; --wine: #8C3A43;
+  --ink: #2E0A0E; --muted: #6E4A4E; --soft: #9A7A7D; --line: rgba(46, 10, 14, .13);
+  --on-dark: #E8CFCB; --line-dark: rgba(232, 207, 203, .18); --white: #FFFFFF;
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --ar: 'Noto Naskh Arabic', 'Geeza Pro', Tahoma, serif;
+  --text: 680px; --wide: 1200px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--blush); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+
+.band { padding-block: clamp(64px, 9vw, 120px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band--rose { background: var(--rose); }
+.band--dark { background: var(--ox); color: var(--white); }
+.band--deep { background: var(--ox-deep); color: var(--white); }
+.wide { max-width: var(--wide); margin: 0 auto; }
+.col { max-width: var(--text); }
+.stack { display: grid; gap: 22px; }
+
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--wine); }
+.band--dark .eyebrow, .band--deep .eyebrow { color: #E7A9A0; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.08; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.8rem, 1.5rem + 5vw, 5.6rem); }
+h2 { font-size: clamp(2.1rem, 1.4rem + 2.4vw, 3.4rem); }
+h3 { font-size: 1.45rem; line-height: 1.25; }
+em.hl { font-style: italic; color: var(--wine); }
+.band--dark em.hl, .band--deep em.hl { color: #F0B8AE; }
+p { margin: 0; }
+.lede { font-size: clamp(1.08rem, 1rem + .4vw, 1.24rem); color: var(--muted); }
+.band--dark .lede, .band--deep .lede { color: var(--on-dark); }
+.muted { color: var(--muted); }
+.band--dark .muted, .band--deep .muted { color: var(--on-dark); }
+.ar { font-family: var(--ar); letter-spacing: 0; }
+
+/* Opening */
+.open { padding-top: clamp(24px, 4vw, 44px); background: radial-gradient(900px 480px at 88% 0%, #F3DCD5, transparent 62%), var(--blush); overflow: hidden; }
+.open__mark { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(40px, 7vw, 76px); }
+.open__mark img { width: 190px; height: auto; }
+.open__mark .by { margin-left: auto; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.open__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.facts { margin: 0; display: grid; border-top: 2px solid var(--ox); }
+.facts div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; padding-top: 3px; color: var(--soft); }
+.facts dd { margin: 0; font-size: 15.5px; }
+@media (max-width: 860px) { .open__grid { grid-template-columns: minmax(0, 1fr); } .open__mark .by { display: none; } }
+.hero-shot { margin-top: clamp(44px, 7vw, 80px); }
+
+/* Screens */
+.shot { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 80px -42px rgba(46, 10, 14, .5); background: var(--white); max-width: 100%; }
+.band--dark .shot, .band--deep .shot { border-color: rgba(255, 255, 255, .1); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .6); }
+figure { margin: 0; display: grid; gap: 14px; min-width: 0; }
+figcaption { font-size: 14.5px; color: var(--muted); max-width: 66ch; }
+.band--dark figcaption, .band--deep figcaption { color: var(--on-dark); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+@media (max-width: 860px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+@media (max-width: 860px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.phone { border-radius: 30px; padding: 7px; background: var(--ox-deep); box-shadow: 0 30px 60px -24px rgba(46, 10, 14, .5); }
+.band--dark .phone { background: #1C0508; }
+.phone img { border-radius: 24px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+.phones figure:nth-child(even) { transform: translateY(28px); }
+.phones figcaption { font-size: 13px; text-align: center; margin-inline: auto; }
+
+.chapter { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.chapter > .stack:first-child { position: sticky; top: 32px; }
+@media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); } .chapter > .stack:first-child { position: static; } }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.points li { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 6px 28px; }
+.points b { font-weight: 600; font-size: 1.04rem; line-height: 1.45; }
+.points span { color: var(--muted); }
+@media (max-width: 640px) { .points li { grid-template-columns: minmax(0, 1fr); } }
+.band--dark .points, .band--dark .points li, .band--deep .points, .band--deep .points li { border-color: var(--line-dark); }
+.band--dark .points span, .band--deep .points span { color: var(--on-dark); }
+
+/* Goals: arch-topped cards, the same arch as the hero frame */
+.goals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 900px) { .goals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .goals { grid-template-columns: minmax(0, 1fr); } }
+.goal { background: var(--white); border: 1px solid var(--line); border-radius: 120px 120px 10px 10px; padding: 40px 22px 24px; display: grid; gap: 8px; align-content: start; text-align: center; }
+.goal i { font-family: var(--serif); font-style: italic; font-size: 1.9rem; color: var(--wine); line-height: 1; }
+.goal b { font-weight: 600; font-size: 1.05rem; line-height: 1.35; }
+.goal span { color: var(--muted); font-size: 14.5px; }
+
+/* Brand */
+.marks { display: grid; grid-template-columns: 1.5fr 1.5fr 1fr; gap: 14px; }
+@media (max-width: 760px) { .marks { grid-template-columns: minmax(0, 1fr); } }
+.tile { border-radius: 140px 140px 12px 12px; min-height: 260px; display: grid; place-items: center; padding: 40px 28px 30px; overflow: hidden; }
+.tile--light { background: var(--blush); border: 1px solid var(--line); }
+.tile--dark { background: var(--ox); }
+.tile--icon { background: var(--white); border: 1px solid var(--line); }
+.tile img.word { width: min(260px, 88%); }
+.tile img.icon { width: min(130px, 70%); }
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sw { display: grid; gap: 6px; align-content: start; }
+.sw i { display: block; aspect-ratio: 3 / 4; border-radius: 999px 999px 8px 8px; border: 1px solid var(--line); max-width: 100%; }
+.sw b { font-weight: 600; font-size: 14.5px; }
+.sw span { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.name { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .name { grid-template-columns: minmax(0, 1fr); } }
+.name > div { border-top: 2px solid var(--ox); padding-top: 14px; display: grid; gap: 4px; align-content: start; }
+.name big { font-family: var(--serif); font-size: 2rem; line-height: 1.2; }
+.name big.ar { font-family: var(--ar); font-size: 1.9rem; }
+.name small { color: var(--muted); font-size: 14px; }
+
+/* Notes card replica */
+.notes { background: var(--rose); border-radius: 18px; padding: 22px 24px; display: grid; gap: 4px; max-width: 420px; }
+.notes p.tag { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--ox); margin-bottom: 8px; }
+.notes .row { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 10px; font-size: 15px; padding: 3px 0; }
+.notes .row small { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--wine); padding-top: 3px; }
+.code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; background: rgba(46, 10, 14, .06); padding: 1px 6px; border-radius: 4px; }
+.band--dark .code, .band--deep .code { background: rgba(255, 255, 255, .1); }
+
+/* Quiz scoring table */
+.tablewrap { overflow-x: auto; }
+table.score { border-collapse: collapse; width: 100%; min-width: 460px; font-size: 15px; }
+.score th, .score td { text-align: left; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line-dark); vertical-align: top; }
+.score th { font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: #E7A9A0; font-weight: 600; }
+.score td b { color: var(--white); font-weight: 600; font-variant-numeric: tabular-nums; }
+.score td { color: var(--on-dark); }
+
+/* Language toggle replica */
+.toggle { display: inline-flex; border: 1px solid rgba(79, 16, 21, .35); border-radius: 999px; padding: 3px; gap: 2px; background: var(--blush); }
+.toggle span { font-size: 13px; padding: 6px 12px; border-radius: 999px; color: var(--ox); }
+.toggle span.on { background: var(--ox); color: var(--blush); }
+
+/* Numbers + close */
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-dark); }
+.nums div { padding: 24px 18px 0 0; display: grid; gap: 4px; }
+.nums b { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 1.8rem + 2.4vw, 3.8rem); color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
+.nums span { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark); }
+@media (max-width: 760px) { .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; font-size: 13.5px; font-weight: 500; background: var(--white); color: var(--ox); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 26px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 500; border: 1.5px solid rgba(255, 255, 255, .4); color: var(--white); transition: background .25s, border-color .25s; }
+.btn:hover { background: rgba(255, 255, 255, .08); border-color: var(--white); }
+.btn--primary { background: var(--blush); border-color: var(--blush); color: var(--ox); }
+.btn--primary:hover { background: var(--white); border-color: var(--white); }
+.note { font-size: 14px; color: var(--on-dark); max-width: 72ch; }
+.closing-mark { width: 64px; height: auto; }
+</style>
+
+</head>
+<body>
+<header class="band open">
+  <div class="wide">
+    <div class="open__mark">
+      <img src="brand/mm-logo.svg" width="190" height="60" alt="Misk &amp; Mirr">
+      <span class="by">Case study · Arooj Fatima</span>
+    </div>
+    <div class="open__grid">
+      <div class="stack" style="gap: 26px">
+        <span class="eyebrow">Shopify store · Brand · English and Arabic</span>
+        <h1>A perfume house for the Gulf, <em class="hl">in two languages</em></h1>
+        <p class="lede">Misk &amp; Mirr is a concept oud and perfume brand for the UAE. I designed the logo and the brand, built a custom Shopify theme, and set up everything behind it: products with scent notes, a scent quiz, a full Arabic version that reads right to left, delivery rates, a discount code and the store’s policy pages.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Brand designer and Shopify developer, solo</dd></div>
+        <div><dt>Scope</dt><dd>Logo, storefront theme, product setup, Arabic version, store operations</dd></div>
+        <div><dt>Built with</dt><dd>Shopify Online Store 2.0, Liquid, JavaScript, Admin GraphQL API</dd></div>
+        <div><dt>Year</dt><dd>2026 · self-initiated concept</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-shot">
+      <div class="shot"><img src="shots/home-hero.jpg" alt="Misk and Mirr homepage hero: oxblood background, the headline Perfume with a Gulf soul, and a black perfume bottle in an arched frame lit through a mashrabiya screen" width="1440" height="840"></div>
+      <figcaption>The homepage on desktop. The arched frame around the bottle comes from Gulf doorways and mashrabiya windows, and it returns across the store and this page.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wide stack" style="gap: 44px">
+    <div class="col stack">
+      <span class="eyebrow">The brief</span>
+      <h2>You can’t <em class="hl">smell</em> a website</h2>
+      <p class="lede">Perfume is one of the biggest online categories in the UAE, but it is also the hardest to sell on a screen. Shoppers want to know how a scent smells, how long it lasts and whether it suits the occasion before they spend AED 400 on a bottle.</p>
+      <p>Gulf shoppers also expect a store to speak Arabic properly, not as a translated afterthought, and a lot of perfume is bought as a gift for Eid, weddings and visits. So I set four goals for the store.</p>
+    </div>
+    <div class="goals">
+      <div class="goal"><i>i</i><b>Describe the scent</b><span>Top, heart and base notes, intensity, how long it lasts and how far it carries, on every product.</span></div>
+      <div class="goal"><i>ii</i><b>Help people choose</b><span>A short quiz that matches a shopper to one perfume from three simple questions.</span></div>
+      <div class="goal"><i>iii</i><b>Arabic, done properly</b><span>Every word translated, right-to-left layout, Arabic typefaces and a one-tap language switch.</span></div>
+      <div class="goal"><i>iv</i><b>Ready to run</b><span>Real delivery rates, a welcome discount, policy pages and fields the owner can edit without code.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--rose">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Brand</span>
+      <h2>Musk and <em class="hl">myrrh</em></h2>
+      <p class="muted">Misk is the Arabic word for musk, and mirr is myrrh. They are two of the oldest scents of Arabia, and the name says what the house makes in two short words that work in English and Arabic.</p>
+      <p class="muted">I designed the logo myself: an M drawn as a perfume bottle, with a cut gem for its stopper, beside a wordmark with a small ampersand. Oxblood on blush keeps it warm and feminine without looking like coffee or chocolate.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <div class="marks">
+        <div class="tile tile--light"><img class="word" src="brand/mm-logo.svg" width="260" height="82" alt="Misk and Mirr logo in oxblood: the M-shaped bottle symbol beside the wordmark"></div>
+        <div class="tile tile--dark"><img class="word" src="brand/mm-logo-light.svg" width="260" height="82" alt="The same logo in blush on oxblood"></div>
+        <div class="tile tile--icon"><img class="icon" src="brand/mm-symbol.svg" width="110" height="130" alt="The M bottle symbol on its own"></div>
+      </div>
+      <div class="swatches">
+        <div class="sw"><i style="background: #FBF6F3"></i><b>Blush</b><span>#FBF6F3 · pages</span></div>
+        <div class="sw"><i style="background: #F2DFD8"></i><b>Rose dust</b><span>#F2DFD8 · cards</span></div>
+        <div class="sw"><i style="background: #8C3A43"></i><b>Wine</b><span>#8C3A43 · accents</span></div>
+        <div class="sw"><i style="background: #4F1015"></i><b>Oxblood</b><span>#4F1015 · buttons, bands</span></div>
+        <div class="sw"><i style="background: #2E0A0E"></i><b>Dark oud</b><span>#2E0A0E · text</span></div>
+      </div>
+      <div class="name">
+        <div><big>Playfair Display</big><small>Headings and taglines. High contrast, like a printed perfume box.</small></div>
+        <div><big style="font-family: var(--sans)">Jost</big><small>Body text, prices and buttons. Clean and geometric.</small></div>
+        <div><big class="ar" lang="ar" dir="rtl">مسك ومُر</big><small>Noto Naskh Arabic for Arabic headings and text, so the Arabic has the same elegance.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 56px">
+    <div class="col stack">
+      <span class="eyebrow">The storefront</span>
+      <h2>A custom theme, <em class="hl">block by block</em></h2>
+      <p class="lede">I built the homepage from my own theme blocks: an arched hero, a band of key notes, the collection grid, mood tiles, the scent quiz, a brand story and a gifting band. Each block has settings, so the owner can change images, text and products in the Shopify editor.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/home-collection.jpg" alt="Homepage section titled Five perfumes, one house: five product cards with photos, scent family and price ranges in dirhams" width="1440" height="665"></div>
+      <figcaption>The collection on the homepage. Under each name is its scent family, read from the product’s own data, so new perfumes show it without editing the theme.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/home-mood.jpg" alt="Section titled Deep or bright? with two arched image tiles: Woody and Amber with a red bottle on silk, and Floral and Fruity with a pink bottle and cherries" width="1440" height="940"></div>
+        <figcaption>Shop by mood. Two arched tiles split the range into deep evening scents and bright everyday ones.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/home-story.jpg" alt="Brand story section: the Signature bottle beside the heading Old Arabian notes, worn the modern way, with three short promises" width="1440" height="850"></div>
+        <figcaption>The brand story, with three promises a shopper cares about: strong concentrations, free gift wrapping and free delivery over AED 300.</figcaption>
+      </figure>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/home-gift.jpg" alt="Dark oxblood gifting band with the heading For Eid, weddings and every just because, beside three perfume bottles on marble steps" width="1440" height="850"></div>
+      <figcaption>Gifting gets its own band, because so much perfume in the Gulf is bought for someone else.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band band--rose">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Product page</span>
+      <h2>Notes you can <em class="hl">read</em></h2>
+      <p class="muted">Every product has eight custom fields: a tagline, top, heart and base notes, scent family, intensity from 1 to 5, longevity and projection. A theme block turns them into a notes card beside the price.</p>
+      <p class="muted">The fields are proper Shopify metafield definitions, pinned to the product page in the admin. The owner fills in a new perfume like a form, and intensity only accepts a number from 1 to 5, so the dots can’t break.</p>
+      <div class="notes" aria-label="Example notes card">
+        <p class="tag">Red rose and dark oud in a gold-capped bottle.</p>
+        <div class="row"><small>Top</small><span>Raspberry, saffron</span></div>
+        <div class="row"><small>Heart</small><span>Taif rose</span></div>
+        <div class="row"><small>Base</small><span>Cambodian oud, patchouli</span></div>
+      </div>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <figure>
+        <div class="shot"><img src="shots/product.jpg" alt="Rouge Oud product page: a large photo of a red perfume bottle on cream silk, and beside it the price, a notes card with top, heart and base notes, five intensity dots, 12 hours or more longevity, strong projection, size buttons and add to cart" width="1440" height="1100"></div>
+        <figcaption>Rouge Oud. The card answers the three questions people ask in a perfume shop: what does it smell like, how strong is it, and how long does it last.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/collection.jpg" alt="Eau de Parfum collection page with a filter button, sort menu and five product cards" width="1440" height="1080"></div>
+        <figcaption>A collection page. Five collections group the range by type, scent family, gifts and bestsellers, with Shopify’s filters and sorting.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--deep">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Scent quiz</span>
+      <h2>Three questions, <em class="hl">one perfume</em></h2>
+      <p class="muted">The quiz asks when you’ll wear it, which notes you love and how strong you like it. I wrote it as a small web component in plain JavaScript. The theme passes it each product’s tags, intensity, image and price as JSON, and the quiz scores every perfume and shows the best match with a link to buy.</p>
+      <p class="muted">Because it reads live product data, a new perfume joins the quiz as soon as it is tagged. Nothing in the code needs to change.</p>
+    </div>
+    <div class="stack" style="gap: 40px">
+      <figure>
+        <div class="shot"><img src="shots/home-quiz.jpg" alt="Quiz section titled Find your scent with three questions, each with two answer cards, and a Show my perfume button" width="1440" height="820"></div>
+      </figure>
+      <div class="tablewrap">
+        <table class="score">
+          <thead><tr><th>Answer</th><th>Product data it checks</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>During the day / In the evening</td><td>Tag <span class="code">mood:day</span> or <span class="code">mood:evening</span></td><td><b>+2</b></td></tr>
+            <tr><td>Flowers and fruit / Woods and spice</td><td>Tags <span class="code">family:floral</span>, <span class="code">fruity</span>, <span class="code">fresh</span> or <span class="code">woody</span>, <span class="code">amber</span></td><td><b>+3</b></td></tr>
+            <tr><td>Soft and close / Bold and lasting</td><td>Intensity field: 3 or less, or 4 and up</td><td><b>+2</b></td></tr>
+            <tr><td>Any answer</td><td>Gift sets, so a single bottle wins a tie</td><td><b>−1</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 56px">
+    <div class="col stack">
+      <span class="eyebrow">Arabic version</span>
+      <h2>Right to left, <em class="hl">not just translated</em></h2>
+      <p class="lede">Arabic shoppers get the whole store in Arabic at <span class="code">/ar</span>, and the layout mirrors itself: the logo moves to the right, the hero image swaps sides and every row reads right to left.</p>
+      <p>A switch in the header moves between <span class="toggle" aria-hidden="true"><span class="on">EN</span><span class="ar">العربية</span></span> and keeps you on the same page. On phones it shrinks to one button for the other language, so the header still fits at 390 pixels.</p>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/home-hero.jpg" alt="English homepage hero with the logo on the left and the bottle image on the right" width="1440" height="840"></div>
+        <figcaption>English, left to right.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/ar-hero.jpg" alt="Arabic homepage hero: the same design mirrored, with the logo on the right, the Arabic headline عطور بروح خليجية and the bottle image on the left" width="1440" height="840"></div>
+        <figcaption>Arabic, mirrored from the browser’s own direction. Nothing in the theme is hard-coded to one side.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Every word in Arabic</b><span>Products, notes and taglines, collections, menus, the policy pages, delivery options at checkout and the search-engine titles, all through Shopify’s translation API.</span></li>
+      <li><b>Theme text in a locale file</b><span>All my theme’s own words, from quiz questions to button labels, live in English and Arabic locale files, not in the templates.</span></li>
+      <li><b>Arabic typefaces</b><span>Noto Naskh Arabic for headings and IBM Plex Sans Arabic for text load only on Arabic pages, and letter-spacing is turned off so Arabic letters stay joined.</span></li>
+      <li><b>Direction from Shopify</b><span>The page direction comes from the shopper’s language setting in Shopify, so layout spacing uses start and end, not left and right.</span></li>
+    </ul>
+    <div class="phones">
+      <figure><div class="phone"><img src="shots/m-home.jpg" alt="English homepage on a phone with the العربية button in the header" width="390" height="844"></div><figcaption>English homepage</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-collection.jpg" alt="Product grid on a phone, two columns" width="390" height="844"></div><figcaption>Collection on mobile</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-ar-product.jpg" alt="Arabic Rouge Oud product page on a phone, with the notes card in Arabic" width="390" height="844"></div><figcaption>Arabic product page</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-ar-shipping.jpg" alt="Arabic shipping and delivery page on a phone" width="390" height="844"></div><figcaption>Arabic delivery page</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--rose">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Behind the store</span>
+      <h2>Set up <em class="hl">to sell</em></h2>
+      <p class="muted">A store is more than its pages. I set up the admin side so the owner could start taking orders, and so every promise on the website matches what checkout actually does.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <ul class="points">
+        <li><b>Delivery that matches the website</b><span>Three rates for the UAE: standard AED 25, free on orders of AED 300 or more, and express next-day AED 45. The homepage promises free delivery over AED 300, so checkout gives exactly that.</span></li>
+        <li><b>Welcome discount</b><span>Code WELCOME10 takes 10% off a first order, once per customer, and can be combined with free delivery.</span></li>
+        <li><b>Policy pages</b><span>Shipping and delivery, returns and refunds, terms of service and a FAQ, in English and Arabic, linked in the footer. Returns follow perfume rules: unopened bottles within 14 days.</span></li>
+        <li><b>Catalogue</b><span>Six products with sizes, prices in dirhams, SKUs and tracked stock, grouped into five collections.</span></li>
+        <li><b>Navigation and search</b><span>A main menu by scent family, a footer of policy pages, and a search title, description and image alt text for every product.</span></li>
+      </ul>
+      <figure>
+        <div class="shot"><img src="shots/faq.jpg" alt="FAQ page answering how long the perfume lasts, which perfume to choose, what top, heart and base notes mean, gift wrapping, delivery cost, returns and the first order discount" width="1440" height="1153"></div>
+        <figcaption>The FAQ answers what a shopper would otherwise message about, and points back to the quiz and the notes.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wide stack" style="gap: 56px">
+    <div class="col stack">
+      <span class="eyebrow">In numbers</span>
+      <h2>One store, <em class="hl">two languages</em></h2>
+    </div>
+    <div class="nums">
+      <div><b>2</b><span>Languages, LTR and RTL</span></div>
+      <div><b>8</b><span>Scent fields per product</span></div>
+      <div><b>6</b><span>Custom theme blocks</span></div>
+      <div><b>3</b><span>Delivery options</span></div>
+    </div>
+    <div class="stack" style="gap: 18px">
+      <span class="eyebrow">Tools and skills</span>
+      <div class="chips">
+        <span>Shopify Online Store 2.0</span><span>Liquid</span><span>Theme blocks</span><span>JavaScript web components</span><span>Metafields</span><span>Admin GraphQL API</span><span>Translations and RTL</span><span>Shipping and discounts</span><span>Brand and logo design</span><span>SEO</span>
+      </div>
+    </div>
+    <div class="stack" style="gap: 22px">
+      <img class="closing-mark" src="brand/mm-symbol-light.svg" width="64" height="76" alt="">
+      <div class="cta">
+        <a class="btn btn--primary" href="https://jrjyxr-bp.myshopify.com" target="_blank" rel="noopener">Visit the store</a>
+        <a class="btn" href="https://jrjyxr-bp.myshopify.com/ar" target="_blank" rel="noopener">Arabic version</a>
+      </div>
+      <p class="note">Misk &amp; Mirr is a self-initiated concept brand. The store runs on a Shopify trial and is password protected, so it does not take real orders; the password is available on request. Product photos are mockups I made for the brand.</p>
+    </div>
+  </div>
+</section>
+
+<a href="../../index.html" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(20,22,37,.9);color:#EDEBF7;font:600 13px/1 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;border:1px solid rgba(200,196,255,.3);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);backdrop-filter:blur(8px)">&larr; Arooj&rsquo;s portfolio</a><script>if(window.self!==window.top){var a=document.currentScript.previousElementSibling;if(a)a.remove();}</script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Saatio Case Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Case study: Saatio, a concept booking and scheduling SaaS for salons, clinics, spas and gyms in the UAE and USA, with an AI WhatsApp receptionist, business dashboard and platform admin. By Arooj Fatima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap">
+<style>
+/* Layout: a product case study in Saatio's own brand. White and lilac pages, midnight bands for the AI and the admin,
+   and the logo's petal (a square with two opposite rounded corners) as the shape for swatches, chips and frames.
+   A single light look on purpose, like the product's marketing site. */
+:root {
+  --violet: #6C4CF5; --violet-2: #5536E0; --coral: #FF7A59; --midnight: #0E1330; --midnight-2: #171D45;
+  --mint: #2ED3A0; --lilac: #F1EEFF; --white: #FFFFFF; --ink: #0E1330; --muted: #5B6080; --soft: #8A8FAE;
+  --line: rgba(14, 19, 48, .12); --on-dark: #C9CCE6; --line-dark: rgba(201, 204, 230, .16);
+  --sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+  --ar: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+  --text: 680px; --wide: 1200px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--sans); font-size: 16.5px; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+
+.band { padding-block: clamp(64px, 9vw, 120px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band--lilac { background: var(--lilac); }
+.band--dark { background: var(--midnight); color: var(--white); }
+.wide { max-width: var(--wide); margin: 0 auto; }
+.col { max-width: var(--text); }
+.center { margin-inline: auto; }
+.stack { display: grid; gap: 22px; }
+
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--violet); }
+.band--dark .eyebrow { color: var(--mint); }
+h1, h2, h3 { font-weight: 800; margin: 0; text-wrap: balance; line-height: 1.04; letter-spacing: -0.035em; }
+h1 { font-size: clamp(2.7rem, 1.4rem + 5vw, 5.4rem); }
+h2 { font-size: clamp(2rem, 1.3rem + 2.4vw, 3.3rem); }
+h3 { font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.02em; }
+.hl { color: var(--violet); }
+.band--dark .hl { color: #A996FF; }
+p { margin: 0; }
+.lede { font-size: clamp(1.06rem, 1rem + .4vw, 1.22rem); color: var(--muted); }
+.band--dark .lede { color: var(--on-dark); }
+.muted { color: var(--muted); }
+
+/* Opening */
+.open { background: radial-gradient(1200px 520px at 85% -10%, #E4DDFF, transparent 60%), linear-gradient(180deg, var(--white), var(--lilac)); padding-top: clamp(24px, 4vw, 44px); overflow: hidden; }
+.open__mark { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(40px, 7vw, 76px); }
+.open__mark img { width: 128px; height: auto; }
+.open__mark .by { margin-left: auto; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.open__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.facts { margin: 0; display: grid; border-top: 2px solid var(--ink); }
+.facts div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding-top: 3px; color: var(--soft); }
+.facts dd { margin: 0; font-size: 15px; font-weight: 500; }
+@media (max-width: 860px) { .open__grid { grid-template-columns: minmax(0, 1fr); } .open__mark .by { display: none; } }
+.hero-shot { margin-top: clamp(44px, 7vw, 80px); }
+
+/* Screens */
+.shot { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 80px -40px rgba(14, 19, 48, .45); background: var(--white); max-width: 100%; }
+.band--dark .shot { border-color: rgba(255, 255, 255, .1); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .6); }
+figure { margin: 0; display: grid; gap: 14px; min-width: 0; }
+figcaption { font-size: 14px; color: var(--muted); max-width: 66ch; }
+.band--dark figcaption { color: var(--on-dark); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+@media (max-width: 860px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+@media (max-width: 860px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.phone { border-radius: 30px; padding: 7px; background: var(--midnight); box-shadow: 0 30px 60px -24px rgba(14, 19, 48, .5); }
+.phone img { border-radius: 24px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+.phones figure:nth-child(even) { transform: translateY(28px); }
+.phones figcaption { font-size: 13px; text-align: center; }
+
+.chapter { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.chapter > .stack:first-child { position: sticky; top: 32px; }
+@media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); } .chapter > .stack:first-child { position: static; } }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.points li { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 6px 28px; }
+.points b { font-weight: 700; font-size: 1.04rem; line-height: 1.4; letter-spacing: -0.01em; }
+.points span { color: var(--muted); }
+@media (max-width: 640px) { .points li { grid-template-columns: minmax(0, 1fr); } }
+.band--dark .points, .band--dark .points li { border-color: var(--line-dark); }
+.band--dark .points span { color: var(--on-dark); }
+
+/* Goals */
+.goals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 900px) { .goals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .goals { grid-template-columns: minmax(0, 1fr); } }
+.goal { background: var(--white); border: 1px solid var(--line); border-radius: 22px 6px 22px 6px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.goal i { width: 30px; height: 30px; border-radius: 50% 4px 50% 4px; display: block; }
+.goal b { font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.35; }
+.goal span { color: var(--muted); font-size: 14.5px; }
+
+/* Brand */
+.marks { display: grid; grid-template-columns: 1.4fr 1.4fr 1fr; gap: 14px; }
+@media (max-width: 760px) { .marks { grid-template-columns: minmax(0, 1fr); } }
+.tile { border-radius: 28px 8px 28px 8px; min-height: 240px; display: grid; place-items: center; padding: 30px; overflow: hidden; }
+.tile--light { background: var(--lilac); }
+.tile--dark { background: var(--midnight); }
+.tile--icon { background: radial-gradient(circle at 30% 20%, #8E74FF, var(--violet)); }
+.tile img.word { width: min(240px, 86%); }
+.tile img.icon { width: min(120px, 60%); border-radius: 26px; box-shadow: 0 20px 40px -16px rgba(14, 19, 48, .5); }
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sw { display: grid; gap: 6px; align-content: start; }
+.sw i { display: block; aspect-ratio: 1; border-radius: 50% 8px 50% 8px; border: 1px solid var(--line); max-width: 100%; }
+.sw b { font-weight: 700; font-size: 14.5px; }
+.sw span { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.name { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .name { grid-template-columns: minmax(0, 1fr); } }
+.name > div { border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 4px; align-content: start; }
+.name big { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+.name small { color: var(--muted); font-size: 14px; }
+.ar { font-family: var(--ar); }
+
+/* Chat quotes */
+.chat { display: grid; gap: 10px; max-width: 560px; }
+.bub { padding: 10px 14px; border-radius: 16px; font-size: 15px; line-height: 1.5; max-width: 88%; }
+.bub--c { justify-self: end; background: #005C4B; color: #E9EDEF; border-top-right-radius: 4px; }
+.bub--a { justify-self: start; background: var(--midnight-2); color: #E9EDEF; border-top-left-radius: 4px; border: 1px solid var(--line-dark); }
+.bub small { display: block; font-size: 11.5px; color: var(--mint); font-weight: 600; letter-spacing: .04em; margin-bottom: 2px; }
+.honest { border: 1px solid var(--line-dark); border-radius: 18px 6px 18px 6px; padding: 18px 20px; color: var(--on-dark); font-size: 15px; background: rgba(255, 255, 255, .03); }
+.honest b { color: var(--white); }
+
+/* Numbers + close */
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-dark); }
+.nums div { padding: 24px 18px 0 0; display: grid; gap: 4px; }
+.nums b { font-weight: 800; font-size: clamp(2.4rem, 1.6rem + 2.4vw, 3.6rem); letter-spacing: -0.04em; color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
+.nums div:nth-child(2) b { color: var(--coral); } .nums div:nth-child(3) b { color: var(--mint); } .nums div:nth-child(1) b { color: #A996FF; }
+.nums span { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark); }
+@media (max-width: 760px) { .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { border: 1px solid var(--line); border-radius: 12px 4px 12px 4px; padding: 4px 14px; font-size: 13.5px; font-weight: 600; background: var(--lilac); color: var(--violet-2); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 700; border: 1.5px solid rgba(255, 255, 255, .35); color: var(--white); transition: background .25s, border-color .25s; }
+.btn:hover { background: rgba(255, 255, 255, .08); border-color: var(--white); }
+.btn--primary { background: var(--violet); border-color: var(--violet); }
+.btn--primary:hover { background: var(--violet-2); border-color: var(--violet-2); }
+.note { font-size: 13.5px; color: var(--on-dark); opacity: .85; max-width: 72ch; }
+.closing-mark { width: 52px; height: auto; }
+</style>
+
+</head>
+<body>
+<header class="band open">
+  <div class="wide">
+    <div class="open__mark">
+      <img src="brand/saatio-logo.svg" width="128" height="38" alt="Saatio">
+      <span class="by">Case study · Arooj Fatima</span>
+    </div>
+    <div class="open__grid">
+      <div class="stack" style="gap: 26px">
+        <span class="eyebrow">SaaS product · Website · Dashboard · Platform admin</span>
+        <h1>Booking software that <span class="hl">answers WhatsApp</span> for you</h1>
+        <p class="lede">Saatio is a concept booking and scheduling product for salons, clinics, spas and gyms in the UAE and the USA. I designed and built all of it: the marketing website, a client booking page, the business dashboard with an AI receptionist, and the admin panel Saatio’s own team would use to run the platform.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Product designer and front-end developer</dd></div>
+        <div><dt>Scope</dt><dd>Website, booking page, business dashboard, AI receptionist, platform admin</dd></div>
+        <div><dt>Built with</dt><dd>React, TypeScript, Laravel API spec</dd></div>
+        <div><dt>Year</dt><dd>2026 · self-initiated concept</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-shot">
+      <div class="shot"><img src="shots/home-hero.jpg" alt="Saatio homepage: the headline Smarter scheduling. Happier customers. beside a live day calendar for Noor Beauty Lounge with bookings for Sara, Maya and Leila, and buttons to start a free trial or try a live booking page." width="1800" height="1125"></div>
+      <figcaption>The homepage. The calendar in the hero is the real product, drawn from the same sample salon the rest of the demo uses. Links under the buttons open the business dashboard and the admin panel directly.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wide stack" style="gap: 44px">
+    <div class="col stack">
+      <span class="eyebrow">The brief</span>
+      <h2>The owner is also <span class="hl">the receptionist</span></h2>
+      <p class="lede">In Dubai most small salons and clinics take bookings on WhatsApp. The owner or a stylist answers between clients, often hours later, and checks a paper diary or a shared phone to see what is free.</p>
+      <p>That costs them in three ways. Messages that arrive late at night go unanswered and the client books somewhere else. Quiet hours in the middle of the week stay empty. And no-shows leave a stylist idle with no one to call. The big booking platforms solve part of this, but they are built for the US or Europe, price in dollars and don’t speak Arabic or the Roman Urdu many staff and clients actually type. So I set four goals for Saatio.</p>
+    </div>
+    <div class="goals">
+      <div class="goal"><i style="background: var(--violet)"></i><b>Answer every message</b><span>An AI receptionist on WhatsApp that books, moves and cancels from live availability, any time of day.</span></div>
+      <div class="goal"><i style="background: var(--coral)"></i><b>Fill the quiet hours</b><span>Find empty gaps in the week and offer them to clients who are due a visit.</span></div>
+      <div class="goal"><i style="background: var(--mint)"></i><b>Stop no-shows fairly</b><span>Reminders for everyone, and a deposit only for the few clients who often miss.</span></div>
+      <div class="goal"><i style="background: var(--midnight)"></i><b>Run as a real SaaS</b><span>Plans in AED and USD, a free trial, and an admin panel for the Saatio team.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--lilac">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Brand</span>
+      <h2>A name about <span class="hl">time</span></h2>
+      <p class="muted">“Saat” means hour or time in Urdu and Turkish, close to the Arabic ساعة, so it reads naturally to the people who will use it in the Gulf. The “io” gives it a product feel. We checked several names first; some were already taken.</p>
+      <p class="muted">The client designed the four-petal symbol as an image. I redrew it as clean vectors, kept its shape and the single coral petal exactly, and set the wordmark beside it. The petal shape then became the corner style for cards, swatches and chips across the product.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <div class="marks">
+        <div class="tile tile--light"><img class="word" src="brand/saatio-logo.svg" width="240" height="71" alt="Saatio logo: four rounded petals, three violet and one coral, beside the wordmark in midnight"></div>
+        <div class="tile tile--dark"><img class="word" src="brand/saatio-logo-white.svg" width="240" height="71" alt="The same logo with a white wordmark on midnight"></div>
+        <div class="tile tile--icon"><img class="icon" src="brand/saatio-app-icon.svg" width="120" height="120" alt="Saatio app icon"></div>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Colour</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#6C4CF5"></i><b>Violet</b><span>#6C4CF5 · actions, links</span></div>
+          <div class="sw"><i style="background:#FF7A59"></i><b>Coral</b><span>#FF7A59 · AI, highlights</span></div>
+          <div class="sw"><i style="background:#0E1330"></i><b>Midnight</b><span>#0E1330 · text, sidebar</span></div>
+          <div class="sw"><i style="background:#2ED3A0"></i><b>Mint</b><span>#2ED3A0 · confirmed, live</span></div>
+          <div class="sw"><i style="background:#F1EEFF"></i><b>Lilac</b><span>#F1EEFF · sections</span></div>
+        </div>
+        <p class="muted">The palette came from the client’s brand board. In the calendar each team member gets their own colour, and booking states use mint, violet and coral with a text label, never colour alone.</p>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Type</h3>
+        <div class="name">
+          <div><big>Fill every hour.</big><small>Plus Jakarta Sans ExtraBold for headlines</small></div>
+          <div><big style="font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; padding-top: .35em">Blow-dry · 45 min · AED 120</big><small>The same family at regular weights for the app</small></div>
+          <div><big class="ar" dir="rtl" lang="ar" style="font-weight: 500; letter-spacing: 0">بكرة الساعة ٤</big><small>IBM Plex Sans Arabic in Arabic chat messages</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Marketing website</span>
+      <h2>Sell it by <span class="hl">showing it</span></h2>
+      <p class="lede">A business owner decides in a minute or two. So instead of screenshots and promises, the website lets them use the product: every section links into the working demo.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/home-try.jpg" alt="See the whole product, from both sides: three cards for the client booking page, the business dashboard and the Saatio admin panel, each with an illustration and a link." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>The demo is split into its three sides: what a client sees, what the business sees, and what the Saatio team sees. A Demo tour button stays in the corner on every page to jump between them.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/home-ai.jpg" alt="Dark section titled A receptionist that never sleeps, with a WhatsApp chat on the left and three AI features on the right: books on WhatsApp, fills empty gaps and protects against no-shows." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>The AI section explains the three AI features in plain words, with a short chat that plays out a real booking.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/home-industries.jpg" alt="Built for businesses that run on appointments: four cards for salons and barbers, clinics, spas, and gyms and studios, each with three features." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Four industries, each with the features that matter to it, like intake notes for clinics or class waitlists for gyms.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/pricing.jpg" alt="Pricing page titled Pay for the size you are, not the features you need, with Starter at AED 99, Growth at AED 249 and Pro at AED 549 a month, and a switch for currency and yearly billing." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Three plans priced separately in AED and USD, with 20% off yearly. Plan prices come from the admin panel, so a change there shows here straight away.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/signup.jpg" alt="Free trial sign-up, step one: What kind of business do you run? with choices for salon, clinic, spa and gym." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>A short free-trial sign-up. Each new business appears in the Saatio admin panel as a trial.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--lilac">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Booking page</span>
+      <h2>A link for <span class="hl">Instagram bios</span></h2>
+      <p class="muted">Every business gets its own booking page to share on Instagram, Google and WhatsApp. The sample salon is Noor Beauty Lounge in Dubai Marina.</p>
+    </div>
+    <div class="stack" style="gap: 32px">
+      <figure>
+        <div class="shot"><img src="shots/book-time.jpg" alt="Noor Beauty Lounge booking page on step three, Pick a date and time, with a row of days, a grid of free times with 10:45 AM selected, and a summary for a 45-minute blow-dry with Sara Haddad for AED 120." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Service, team member, date and time, details. Only truly free times show, worked out from each stylist’s hours and existing bookings.</figcaption>
+      </figure>
+      <ul class="points">
+        <li><b>Deposits only when needed</b><span>Most clients book without paying anything. A client with two or more past no-shows is asked for a deposit, 25% by default.</span></li>
+        <li><b>Recognises regulars</b><span>Typing a known phone number greets the client by name, so returning clients don’t fill in the same details again.</span></li>
+        <li><b>Lands in the calendar</b><span>A booking made here appears in the business dashboard at once, marked as an online booking.</span></li>
+        <li><b>Local time</b><span>Times are shown in the business’s own time zone, so a client planning from abroad sees the salon’s clock.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wide stack" style="gap: 52px">
+    <div class="col stack">
+      <span class="eyebrow">AI receptionist</span>
+      <h2>Writes back the way <span class="hl">clients write</span></h2>
+      <p class="lede">Clients in Dubai message in English, Arabic or Roman Urdu, often mixed and full of typos. The receptionist understands all three, answers in the client’s language and books straight into the calendar.</p>
+    </div>
+    <div class="pair" style="align-items: center">
+      <div class="chat" aria-label="Example conversation in Roman Urdu">
+        <div class="bub bub--c">Kal shaam 5 baje blow-dry ho sakta hai?</div>
+        <div class="bub bub--a"><small>Saatio AI</small>Sara kal 4:30 PM par aap ki blow-dry kar sakti hain. Kaunsa time theek rahega?</div>
+        <div class="bub bub--c">kitne ka hai?</div>
+        <div class="bub bub--a"><small>Saatio AI</small>Blow-dry AED 120 ki hai aur is mein 45 minute lagta hai. Upar wale times mein se koi book kar dun?</div>
+        <div class="bub bub--c">koi offer hai?</div>
+      </div>
+      <div class="stack" style="gap: 18px">
+        <p class="lede" style="font-size: 1.05rem">If 5 PM is taken, it offers the nearest free times instead of saying no. It remembers what the conversation is about, so “how much is it?” gets the price of that service, not the whole menu, and “yes” books the time it just offered.</p>
+        <p class="lede" style="font-size: 1.05rem">Questions it can’t handle, like a complaint, go to the team with the chat attached.</p>
+      </div>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/ai-urdu.jpg" alt="AI assistant screen with a WhatsApp-style chat in Roman Urdu: the client asks for a blow-dry, its price and any offers, and the AI lists three current offers. Beside it, a log of what the AI did and a list of what it understands." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>The demo chat. Beside it, “What the AI did” logs every action, like checking availability or sharing an offer, so the owner can trust it.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/ai-arabic.jpg" alt="The same chat in Arabic: the client asks for a manicure tomorrow at 4, the AI offers 11:00 AM and 3:00 PM, the client taps 11:00 and the AI confirms the booking. A notice says the new booking is in the calendar." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>In Arabic, with Arabic digits like ٤ understood. Times appear as tap-to-choose buttons, and the confirmed booking appears in the calendar.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Offers the owner controls</b><span>When a client asks about discounts, it lists the salon’s current offers, which the owner edits in Settings, one per line.</span></li>
+      <li><b>Moves and cancels</b><span>It finds the client’s upcoming bookings, asks which one, and offers new free times.</span></li>
+      <li><b>New clients</b><span>Someone not yet in the system is asked their name before the booking is made, and is added as a client.</span></li>
+    </ul>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/ai-gaps.jpg" alt="Smart gaps tab listing empty gaps in the next few days per team member, a WhatsApp message to send, and the number of clients who are due a visit." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Smart gaps finds empty stretches of 90 minutes or more and drafts a WhatsApp offer for clients who haven’t visited in four weeks.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/ai-noshows.jpg" alt="No-show protection tab showing clients with repeated no-shows, their upcoming bookings and whether a deposit is required." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>No-show protection lists the few clients who often miss, and those are the only ones asked for a deposit.</figcaption>
+      </figure>
+    </div>
+    <p class="honest"><b>How the demo works:</b> in this concept the receptionist runs offline in the browser, using a language engine I wrote that matches intents, fuzzy-matches typos and keeps track of the conversation. In the real product, the same actions would be driven by an AI model connected to the WhatsApp Business API and the business’s calendar.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Business dashboard</span>
+      <h2>The whole salon on <span class="hl">one screen</span></h2>
+      <p class="lede">What the owner opens in the morning: today’s bookings, revenue, how many bookings came online or through the AI, and the no-show rate.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/app.jpg" alt="Business dashboard overview: Good afternoon, Rania, with bookings today, revenue for the last 30 days, share booked online or by AI and no-show rate, today’s timeline with statuses, AI insights and a revenue chart." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>Every number compares to the previous 30 days. Today’s timeline marks what is done, what is happening now and what is next.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/app-calendar.jpg" alt="Day calendar with a column per team member and coloured booking blocks that can be dragged to a new time or person." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>The calendar, one column per team member. Bookings can be dragged to another time or stylist, and clashes are blocked.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/app-bookings.jpg" alt="Bookings list with filters for date range, status and channel." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>All bookings with their source: online, WhatsApp AI, phone or walk-in.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/app-customers.jpg" alt="Clients list with visits, total spent, last visit and a flag for clients who often miss." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Clients, with visits, spend and last visit, and a gentle flag for those who often miss.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/app-reports.jpg" alt="Reports with revenue, bookings and no-show rate over time, top services and revenue by team member." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Reports by day, service and team member.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/app-services.jpg" alt="Services and team page listing services with durations, prices and on/off toggles, and team members with their working days." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Services and team. A price changed here is the price on the booking page and the price the AI quotes.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/app-settings-offers.jpg" alt="Settings with an Offers card listing three offers, one per line, and a Deposits card with toggles and a deposit amount." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Settings for hours, reminders, offers and deposits. Unsaved changes show a save bar at the bottom.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Platform admin</span>
+      <h2>For the team <span class="hl">running Saatio</span></h2>
+      <p class="lede">A SaaS needs a back office too. This is where the Saatio team sees every business on the platform, monthly recurring revenue, trials and plans.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/admin.jpg" alt="Platform overview with monthly recurring revenue, paying businesses, businesses on free trial and average revenue per business, a 12-month MRR chart, the newest sign-ups and trials ending soon." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>Monthly recurring revenue over twelve months, the newest sign-ups (including any made on the demo website) and trials that end soon, so the team knows whom to call.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/admin-businesses.jpg" alt="Businesses table with search and filters for status, plan and country, showing each business’s plan, status and monthly revenue." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>All 168 sample businesses, filterable by status, plan and country. Each one can be opened to change its plan, billing or status.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/admin-plans.jpg" alt="Plans and pricing editor with Starter, Growth and Pro, each with AED and USD prices and a list of features." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Plan prices and features are edited here and update the public pricing page.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--lilac">
+  <div class="wide stack" style="gap: 40px">
+    <div class="col stack">
+      <span class="eyebrow">Mobile</span>
+      <h2>Run it from <span class="hl">the salon floor</span></h2>
+      <p class="lede">Owners rarely sit at a desk. Every part of Saatio works on a phone, from the booking page to the AI chat.</p>
+    </div>
+    <div class="phones">
+      <figure><div class="phone"><img src="shots/m-home.jpg" alt="Saatio homepage on a phone" loading="lazy" width="780" height="1687"></div><figcaption>Website</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-book.jpg" alt="Noor Beauty Lounge booking page on a phone" loading="lazy" width="780" height="1687"></div><figcaption>Booking page</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-app.jpg" alt="Business dashboard overview on a phone" loading="lazy" width="780" height="1687"></div><figcaption>Dashboard</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-ai.jpg" alt="AI receptionist chat on a phone, quoting the price of a gel manicure" loading="lazy" width="780" height="1687"></div><figcaption>AI receptionist</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Build</span>
+      <h2>One product, <span class="hl">fully connected</span></h2>
+      <p class="muted">Built with React and TypeScript, with the data layer specified as a Laravel API.</p>
+      <div class="chips"><span>React</span><span>TypeScript</span><span>Laravel</span><span>MySQL</span><span>WhatsApp API</span><span>RTL</span></div>
+    </div>
+    <ul class="points">
+      <li><b>One shared data store</b><span>The website, booking page, AI, dashboard and admin all read and write the same data, so a booking made anywhere shows up everywhere, even across browser tabs.</span></li>
+      <li><b>Real availability</b><span>Free times come from opening hours, each team member’s days and hours, service length and existing bookings. The booking page, the AI and the dashboard use the same function.</span></li>
+      <li><b>Realistic sample data</b><span>420 clients and about three months of bookings, so the reports, gaps and no-show tools have something real to work with.</span></li>
+      <li><b>Accessibility</b><span>Keyboard-friendly calendar, drawers and booking steps, labelled forms with clear errors, visible focus, status shown with text as well as colour, and a reduced-motion version.</span></li>
+      <li><b>Light</b><span>The whole product, all three sides, ships as a single file of under half a megabyte.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--dark">
+  <div class="wide stack" style="gap: 40px">
+    <div class="nums">
+      <div><b>3</b><span>Sides of one product</span></div>
+      <div><b>3</b><span>Languages the AI reads</span></div>
+      <div><b>15</b><span>Working screens</span></div>
+      <div><b>2</b><span>Currencies</span></div>
+    </div>
+    <div class="col stack">
+      <img class="closing-mark" src="brand/saatio-symbol.svg" width="52" height="52" alt="">
+      <h2>From a name to <span class="hl">a working product</span></h2>
+      <p class="lede">I design and build web products end to end, from the brand and website to dashboards, admin panels and AI features. If you are building a SaaS, or want the same for your business, I would love to hear from you.</p>
+      <div class="cta">
+        <a class="btn btn--primary" href="../../live/saatio/index.html" target="_blank" rel="noopener">Open the live product</a>
+        <a class="btn" href="../../live/saatio/index.html#app-ai" target="_blank" rel="noopener">Chat with the AI</a>
+        <a class="btn" href="../../live/saatio/index.html#admin" target="_blank" rel="noopener">Open the admin panel</a>
+      </div>
+      <p class="note">Saatio is a self-initiated concept. The logo was supplied by the client. Noor Beauty Lounge, its team, clients, bookings, the businesses in the admin panel and all figures are sample data, and the AI receptionist in the demo is a built-in language engine rather than a live AI model.</p>
+    </div>
+  </div>
+</section>
+
+<a href="../../index.html" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(20,22,37,.9);color:#EDEBF7;font:600 13px/1 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;border:1px solid rgba(200,196,255,.3);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);backdrop-filter:blur(8px)">&larr; Arooj&rsquo;s portfolio</a><script>if(window.self!==window.top){var a=document.currentScript.previousElementSibling;if(a)a.remove();}</script>
+</body>
+</html>

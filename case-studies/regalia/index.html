@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Regalia Aesthetics Case Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Case study: bilingual website and clinic admin panel for Regalia Aesthetics, a concept doctor-led aesthetics clinic in Jumeirah, Dubai and the Upper East Side, New York. By Arooj Fatima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap">
+<style>
+/* Layout: a long read in the clinic's own brand. Ivory pages, arch frames from the logo's crown-and-profile
+   world, hairline plum rules and two deep plum bands (Arabic, admin). A single light look on purpose. */
+:root {
+  --plum: #4B1E3F; --plum-2: #6A2F5B; --plum-3: #34122B;
+  --mauve: #A67C8F; --sand: #E8DCC6; --sand-2: #F1E8DA; --ivory: #FAF7F2; --white: #FFFFFF;
+  --muted: #745A6B; --line: rgba(75, 30, 63, .16); --gold: #C8A97E; --on-plum: #E9DCE3;
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --ar-serif: 'Amiri', 'Playfair Display', Georgia, serif;
+  --ar-sans: 'IBM Plex Sans Arabic', Tahoma, Arial, sans-serif;
+  --text: 680px; --wide: 1180px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ivory); color: var(--plum); font-family: var(--sans); font-size: 16.5px; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--mauve); outline-offset: 3px; }
+
+.band { padding-block: clamp(64px, 9vw, 124px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band--sand { background: var(--sand-2); }
+.band--white { background: var(--white); }
+.band--plum { background: var(--plum); color: var(--ivory); }
+.wide { max-width: var(--wide); margin: 0 auto; }
+.col { max-width: var(--text); }
+.center { margin-inline: auto; }
+.stack { display: grid; gap: 22px; }
+
+.eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; color: var(--mauve); }
+.band--plum .eyebrow { color: var(--gold); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.06; letter-spacing: -0.015em; }
+h1 { font-size: clamp(2.8rem, 1.5rem + 5vw, 5.6rem); }
+h2 { font-size: clamp(2.1rem, 1.4rem + 2.4vw, 3.4rem); }
+h3 { font-size: 1.45rem; line-height: 1.2; }
+h1 em, h2 em { font-style: italic; color: var(--plum-2); }
+.band--plum h2 em { color: var(--sand); }
+p { margin: 0; }
+.lede { font-size: clamp(1.08rem, 1rem + .4vw, 1.25rem); font-weight: 300; color: var(--muted); }
+.band--plum .lede { color: var(--on-plum); }
+.muted { color: var(--muted); }
+
+/* Opening */
+.open { background: linear-gradient(180deg, var(--ivory), var(--sand-2)); padding-top: clamp(28px, 4vw, 48px); overflow: hidden; }
+.open__mark { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(40px, 7vw, 76px); }
+.open__mark img { width: 34px; height: auto; }
+.open__mark .wm { font-family: var(--serif); font-size: 22px; letter-spacing: .32em; line-height: 1; }
+.open__mark small { display: block; font-size: 9.5px; letter-spacing: .5em; margin-top: 6px; color: var(--mauve); }
+.open__mark .by { margin-left: auto; font-size: 11.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.open__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.facts { margin: 0; display: grid; border-top: 1px solid var(--plum); }
+.facts div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; padding-top: 4px; color: var(--mauve); }
+.facts dd { margin: 0; font-size: 15px; }
+@media (max-width: 860px) { .open__grid { grid-template-columns: minmax(0, 1fr); } .open__mark .by { display: none; } }
+.hero-shot { margin-top: clamp(44px, 7vw, 84px); }
+
+/* Screens */
+.shot { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 40px 80px -40px rgba(52, 18, 43, .45); background: var(--white); max-width: 100%; }
+.band--plum .shot { border-color: rgba(255, 255, 255, .12); box-shadow: 0 40px 90px -30px rgba(0, 0, 0, .55); }
+figure { margin: 0; display: grid; gap: 14px; min-width: 0; }
+figcaption { font-size: 14px; color: var(--muted); max-width: 64ch; }
+.band--plum figcaption { color: var(--on-plum); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+@media (max-width: 860px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+@media (max-width: 860px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.phone { border-radius: 30px; padding: 7px; background: var(--plum-3); box-shadow: 0 30px 60px -24px rgba(52, 18, 43, .5); display: grid; gap: 0; }
+.phone img { border-radius: 24px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+.phones figure:nth-child(even) { transform: translateY(28px); }
+.phones figcaption { font-size: 13px; text-align: center; }
+
+.chapter { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.chapter > .stack:first-child { position: sticky; top: 32px; }
+@media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); } .chapter > .stack:first-child { position: static; } }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.points li { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 6px 28px; }
+.points b { font-family: var(--serif); font-weight: 400; font-size: 1.12rem; line-height: 1.35; }
+.points span { color: var(--muted); }
+@media (max-width: 640px) { .points li { grid-template-columns: minmax(0, 1fr); } }
+.band--plum .points, .band--plum .points li { border-color: rgba(233, 220, 227, .2); }
+.band--plum .points span { color: var(--on-plum); }
+
+/* Brand */
+.marks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 760px) { .marks { grid-template-columns: minmax(0, 1fr); } }
+.tile { border-radius: 999px 999px 18px 18px; min-height: 300px; display: grid; place-items: center; padding: 34px 24px 24px; overflow: hidden; }
+.tile--ivory { background: var(--ivory); border: 1px solid var(--line); }
+.tile--plum { background: var(--plum); }
+.tile--velvet { padding: 0; background: var(--plum); }
+.tile--velvet img { width: 100%; height: 100%; object-fit: cover; }
+.tile img.full { width: min(200px, 80%); }
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sw { display: grid; gap: 6px; align-content: start; }
+.sw i { display: block; aspect-ratio: 3 / 4; border-radius: 999px 999px 10px 10px; border: 1px solid var(--line); max-width: 100%; }
+.sw b { font-weight: 500; font-size: 14.5px; }
+.sw span { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.type { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .type { grid-template-columns: minmax(0, 1fr); } }
+.type > div { border-top: 1px solid var(--plum); padding-top: 16px; display: grid; gap: 6px; align-content: start; }
+.type small { color: var(--muted); font-size: 13.5px; }
+.grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+
+/* Arabic band */
+.ar { font-family: var(--ar-sans); direction: rtl; }
+.arline { font-family: var(--ar-serif); font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.6rem); line-height: 1.4; color: var(--sand); }
+
+/* Numbers + close */
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(233, 220, 227, .25); }
+.nums div { padding: 24px 18px 0 0; display: grid; gap: 4px; }
+.nums b { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: clamp(2.4rem, 1.6rem + 2.4vw, 3.6rem); color: var(--sand); line-height: 1; font-variant-numeric: tabular-nums; }
+.nums span { font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--on-plum); }
+@media (max-width: 760px) { .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { border: 1px solid var(--plum); border-radius: 999px; padding: 4px 14px; font-size: 13.5px; background: var(--white); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 26px; border-radius: 999px; text-decoration: none; font-size: 12.5px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--ivory); color: var(--ivory); transition: background .3s, color .3s; }
+.btn:hover { background: var(--ivory); color: var(--plum); }
+.btn--ivory { background: var(--ivory); color: var(--plum); }
+.btn--ivory:hover { background: var(--sand); }
+.note { font-size: 13.5px; color: var(--on-plum); opacity: .85; max-width: 70ch; }
+.closing-mark { width: 54px; height: auto; opacity: .95; }
+</style>
+
+</head>
+<body>
+<header class="band open">
+  <div class="wide">
+    <div class="open__mark">
+      <img src="brand/icon.png" width="34" height="61" alt="">
+      <span><span class="wm">REGALIA</span><small>AESTHETICS</small></span>
+      <span class="by">Case study · Arooj Fatima</span>
+    </div>
+    <div class="open__grid">
+      <div class="stack" style="gap: 26px">
+        <span class="eyebrow">Website · Arabic version · Clinic admin</span>
+        <h1>A clinic website that <em>starts with your face</em></h1>
+        <p class="lede">Regalia Aesthetics is a concept doctor-led skin and aesthetics clinic with one branch in Jumeirah, Dubai and one on the Upper East Side, New York. Working from the client’s finished logo, I designed and built a bilingual booking website and a custom admin panel that runs both clinics.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>UI/UX designer and developer</dd></div>
+        <div><dt>Scope</dt><dd>Website in English and Arabic, online booking, skin quiz, clinic admin panel</dd></div>
+        <div><dt>Built with</dt><dd>React, TypeScript, Next.js structure, Laravel API spec</dd></div>
+        <div><dt>Year</dt><dd>2026 · self-initiated concept</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-shot">
+      <div class="shot"><img src="shots/home-hero.jpg" alt="Regalia homepage: the headline Beauty, tailored to you beside an arch-shaped photo of an anti-wrinkle treatment, a slide counter reading 01 of 06, and a glass card showing From AED 1,200 per area, 20 minutes, no downtime." width="1800" height="1125"></div>
+      <figcaption>The homepage hero. Six treatment photos change every four seconds inside an arch. A glass card follows each slide with its real price, time and downtime, in the visitor’s own city and currency.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="band">
+  <div class="col center stack">
+    <span class="eyebrow">The brief</span>
+    <h2>Luxury that still <em>feels safe</em></h2>
+    <p class="lede">Before designing anything I went through clinic websites in Dubai. Most look alike: a stock hero, a long list of treatment names and a phone number. They give a visitor very little reason to trust them or to book.</p>
+    <p>People choosing an injectable or a laser want three things before they book: to know who will treat them, to know what it costs, and to know what the days afterwards will look like. Many also know their problem but not the name of the treatment that fixes it. So I set four goals. Lead with doctors and licensing. Show prices and downtime up front. Let people start from a concern on a face instead of a treatment menu. And give the owner one admin panel for both clinics, in English or Arabic.</p>
+  </div>
+</section>
+
+<section class="band band--white">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Brand</span>
+      <h2>The logo, <em>kept exactly</em></h2>
+      <p class="muted">The client arrived with a finished line-art logo: a crowned profile above a spaced serif wordmark. I used it exactly as supplied, only cutting it out cleanly and recolouring it to ivory for dark backgrounds. Everything else grew from it: the arch of the crown and head became the frame for every photo, and its plum ink became the main colour.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <div class="marks">
+        <div class="tile tile--ivory"><img class="full" src="brand/logo-full.png" width="941" height="926" alt="Regalia Aesthetics logo: a crowned woman’s profile in fine plum line art above the wordmark"></div>
+        <div class="tile tile--plum"><img class="full" src="brand/logo-full-light.png" width="941" height="926" alt="The same logo in ivory on plum"></div>
+        <div class="tile tile--velvet"><img src="brand/velvet.jpg" width="532" height="810" alt="Plum velvet embroidered with the crowned profile" loading="lazy"></div>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Colour</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#4B1E3F"></i><b>Plum</b><span>#4B1E3F · text, buttons</span></div>
+          <div class="sw"><i style="background:#A67C8F"></i><b>Mauve</b><span>#A67C8F · labels, lines</span></div>
+          <div class="sw"><i style="background:#E8DCC6"></i><b>Sand</b><span>#E8DCC6 · sections</span></div>
+          <div class="sw"><i style="background:#FAF7F2"></i><b>Ivory</b><span>#FAF7F2 · page ground</span></div>
+          <div class="sw"><i style="background:#C8A97E"></i><b>Gold</b><span>#C8A97E · small accents</span></div>
+        </div>
+        <p class="muted">Plum on ivory passes WCAG AA for body text. Gold is kept to small marks and never carries words on its own.</p>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Type</h3>
+        <div class="type">
+          <div><span style="font-family: var(--serif); font-size: 2rem; line-height: 1.1">Expert hands, <em style="color: var(--plum-2)">gentle approach</em></span><small>Playfair Display for headlines, matching the wordmark’s serif</small></div>
+          <div><span style="font-size: 1.15rem; padding-top: .4em">Pico laser · from AED 1,400 · 30 minutes</span><small>Montserrat for prices, facts and the admin panel</small></div>
+          <div class="ar"><span style="font-family: var(--ar-serif); font-size: 2.1rem; line-height: 1.3">أيادٍ خبيرة، ولمسة لطيفة</span><small>Amiri and IBM Plex Sans Arabic for the Arabic version</small></div>
+        </div>
+      </div>
+      <div class="stack" style="gap: 14px">
+        <h3>Photography</h3>
+        <p class="muted">The treatment, doctor and face photos are free-licence images from Pexels, picked one by one for the clinic’s mood. They came from different photographers, so I colour-graded every one the same way: shadows pulled toward plum, warm highlights, softer saturation and clinical teal toned down. Side by side they read as one clinic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Start with the concern</span>
+      <h2>Tap where it <em>bothers you</em></h2>
+      <p class="lede">Most people know the problem, not the treatment name. So the homepage asks where, not what.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/facemap.jpg" alt="Face map section: a portrait in an arch with nine dots on forehead, eyes, cheeks, lips, jaw and neck. Cheek volume is selected and three treatments are listed with photos, prices and downtime." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>Nine points sit on a real face. Choosing one, or its chip on the right, lists the treatments that help, each with a price from and its downtime, plus a Book button.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/signature.jpg" alt="Signature treatments: five arch-topped cards with photos for anti-wrinkle injections, dermal fillers, hydrating facial, pico laser and HIFU face lift, each with a from price." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Signature treatments in arch cards. The owner chooses which ones appear here from the admin panel.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/doctors.jpg" alt="Our doctors section with two doctor cards for Dubai, each with a photo, years of experience, a quote, specialties, a DHA licensed tag and a Book with button." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Doctors per clinic, with years of experience, specialties, languages and the licensing body. Photos show hands and white coats instead of faces, since these doctors are fictional.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sand">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">No surprises</span>
+      <h2>Prices, downtime and <em>the days after</em></h2>
+      <p class="lede">Every treatment page answers the questions people are often too shy to ask on the phone.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/treatment.jpg" alt="HIFU face lift treatment page with an arch photo, a Book a consultation button and a row of facts: from AED 3,500, 60 to 90 minutes, no downtime, one session a year, results last 12 months." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>Each treatment page leads with five facts: price from, treatment time, downtime, sessions and how long results last. Then how it works, a day-by-day timeline and questions.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/quiz.jpg" alt="Skin quiz result titled A plan made for you, listing hydrating facial, skin boosters and the signature facial with sessions and prices, and an estimated total." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>A five-question skin quiz builds a plan with sessions, an estimated total and time to full results, then carries the plan into the booking form.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/calc.jpg" alt="Membership tiers above a savings calculator with sliders for facials and anti-wrinkle sessions a year, comparing the cost with and without the Signature plan." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Three memberships, with a calculator that shows whether a plan actually saves money. If it doesn’t, it says pay as you go suits you better.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Booking</span>
+      <h2>A consultation in <em>four steps</em></h2>
+      <p class="muted">Clinic, doctor, date and time, details. A summary stays beside the form the whole way, and nothing is paid online.</p>
+    </div>
+    <div class="stack" style="gap: 32px">
+      <figure>
+        <div class="shot"><img src="shots/book.jpg" alt="Booking step three, pick a date and time, with a row of days and open time slots in Dubai local time, beside an appointment summary." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Open slots come from each clinic’s own hours and local time zone. Times already booked in the admin panel disappear from the website.</figcaption>
+      </figure>
+      <ul class="points">
+        <li><b>Two cities, two clocks</b><span>Dubai shows Gulf time and closes on Fridays; New York shows Eastern time and closes on Sundays.</span></li>
+        <li><b>Prices per city</b><span>Each price is set in AED and USD separately in the admin panel, not converted, because the two markets are priced differently.</span></li>
+        <li><b>Consultation first</b><span>The consultation fee is shown up front and is credited to any treatment booked afterwards.</span></li>
+        <li><b>Next free slot</b><span>The hero shows the next free consultation in the chosen city, worked out from live availability.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band--plum">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Arabic version</span>
+      <p class="arline ar" lang="ar">جمال يليق بكِ</p>
+      <h2>Fully in Arabic, <em>not just translated</em></h2>
+      <p class="lede">In Dubai many patients prefer Arabic. One switch in the header turns the whole website into right-to-left Arabic: menus, all twelve treatment pages, the face map, doctors, quiz and booking.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/ar-hero.jpg" alt="The Arabic homepage, mirrored right to left, with the headline جمال يليق بكِ, the arch slideshow on the left and the price card reading 1,200 درهم." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>The Arabic homepage. The layout mirrors, but the logo does not: it stays exactly as the client supplied it.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/ar-signature.jpg" alt="Arabic signature treatments section with arch cards and prices in dirhams." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Treatment names, descriptions, timelines and FAQs are all written in Arabic, with prices in dirhams and dates in Arabic.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/ar-admin.jpg" alt="The admin dashboard in Arabic with the sidebar on the right, KPI cards, a bar chart and today’s schedule." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>The admin panel has its own language switch, so the website and the admin can each be in English or Arabic.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Real Arabic type</b><span>Amiri for headlines and IBM Plex Sans Arabic for text. Letter-spacing and capitals are switched off, because they break joined Arabic letters.</span></li>
+      <li><b>Mirrored with care</b><span>Arrows, timelines, the city switch and drawers flip. Charts, phone numbers and the face map keep their natural direction.</span></li>
+      <li><b>Editable in both</b><span>The owner can set an Arabic name and description for any treatment and Arabic hero text. Empty fields fall back to the built-in translation.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 40px">
+    <div class="col stack">
+      <span class="eyebrow">Mobile</span>
+      <h2>Booked from the <em>sofa</em></h2>
+      <p class="lede">Most people browse clinics on their phone. The price card slides under the photo, the face map stacks above its results and the booking steps stay thumb-sized.</p>
+    </div>
+    <div class="phones">
+      <figure><div class="phone"><img src="shots/m-home.jpg" alt="Homepage on a phone" loading="lazy" width="780" height="1688"></div><figcaption>Homepage</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-facemap.jpg" alt="Face map on a phone" loading="lazy" width="780" height="1688"></div><figcaption>Face map</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-ar-home.jpg" alt="Arabic homepage on a phone" loading="lazy" width="780" height="1688"></div><figcaption>Arabic homepage</figcaption></figure>
+      <figure><div class="phone"><img src="shots/m-ar-admin.jpg" alt="Arabic appointments list in the admin panel on a phone" loading="lazy" width="780" height="1688"></div><figcaption>Admin, in Arabic</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band band--plum">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Admin panel</span>
+      <h2>Runs <em>both clinics</em></h2>
+      <p class="lede">A custom panel for the clinic manager: appointments, treatments, doctors, memberships, clinic details and the homepage itself, with no monthly platform fees. It is fully interactive and designed to connect to a Laravel API.</p>
+      <p class="lede">It is wired to the website. A booking made on the site appears as a request to confirm, and a price changed here is live on the site straight away.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/admin-dashboard.jpg" alt="Admin dashboard with appointments today, requests to confirm, booked value and no-shows, a bar chart of the next seven days by clinic, most booked treatments and today’s schedule." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>Both clinics at a glance: today’s appointments, requests to confirm, booked value for the week, no-shows, and the next seven days per clinic.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/admin-appointments.jpg" alt="Appointments table with a 14-day strip, clinic filter, search and rows showing time, patient, treatment, doctor, clinic and an inline status menu." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Appointments by day, with one-tap confirm, inline status (confirmed, completed, no-show) and phone or walk-in bookings added by staff.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/admin-edit.jpg" alt="Edit drawer for anti-wrinkle injections with photo, show on website and signature toggles, name, category, icon picker and descriptions." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Every treatment is fully editable: photo, prices for each city, downtime, the day-by-day timeline, FAQs and where it shows on the face map.</figcaption>
+      </figure>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/admin-website.jpg" alt="Website content page with the hero text, its Arabic version and the hero slideshow manager with photo upload, caption, link and alt text." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>The homepage hero and its slideshow are managed here: upload and reorder photos, set each caption and link, and write the headline in both languages.</figcaption>
+    </figure>
+    <ul class="points">
+      <li><b>Doctors and memberships</b><span>Add or edit doctors per clinic and change membership plans. The last doctor at a clinic can’t be deleted by accident.</span></li>
+      <li><b>Clinic hours drive booking</b><span>Changing opening hours or the consultation fee updates the slots and prices patients see.</span></li>
+      <li><b>Safe edits</b><span>Unsaved changes show a save bar, deletions ask for confirmation, and uploaded photos are resized in the browser before saving.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--white">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Build</span>
+      <h2>Light, fast and <em>ready for real data</em></h2>
+      <p class="muted">Built with React and TypeScript in a Next.js structure, with the data layer specified as a Laravel API.</p>
+      <div class="chips"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Laravel</span><span>MySQL</span><span>RTL</span></div>
+    </div>
+    <ul class="points">
+      <li><b>Optimised photos</b><span>Every photo is graded and saved as WebP, so the whole site, photos included, ships as one file of about 1.8 MB.</span></li>
+      <li><b>One content source</b><span>The website reads the same data the admin edits, so there is never a second copy to keep in sync.</span></li>
+      <li><b>API ready</b><span>Treatments, doctors, clinics, memberships, bookings and site content map to clear Laravel endpoints.</span></li>
+      <li><b>Accessibility</b><span>Keyboard-friendly booking, drawers and slideshow, labelled forms with clear errors, visible focus, alt text on every photo and a reduced-motion version.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--plum">
+  <div class="wide stack" style="gap: 40px">
+    <div class="nums">
+      <div><b>12</b><span>Treatments</span></div>
+      <div><b>2</b><span>Cities and currencies</span></div>
+      <div><b>2</b><span>Languages</span></div>
+      <div><b>7</b><span>Admin sections</span></div>
+    </div>
+    <div class="col stack">
+      <img class="closing-mark" src="brand/icon-light.png" width="54" height="97" alt="">
+      <h2>From a finished logo to <em>a working clinic</em></h2>
+      <p class="lede">I design and build custom websites for clinics and brands, admin panel included, in English and Arabic. If you are hiring, or want the same for your clinic, I would love to hear from you.</p>
+      <div class="cta">
+        <a class="btn btn--ivory" href="../../live/regalia/index.html" target="_blank" rel="noopener">Open the live website</a>
+        <a class="btn" href="../../live/regalia/index.html#admin" target="_blank" rel="noopener">Open the admin panel</a>
+      </div>
+      <p class="note">Regalia Aesthetics is a self-initiated concept. The logo was supplied by the client. Doctors, prices, addresses and appointments are sample content, and the photography is free-licence from Pexels. Nothing on the website is medical advice.</p>
+    </div>
+  </div>
+</section>
+
+<a href="../../index.html" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(20,22,37,.9);color:#EDEBF7;font:600 13px/1 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;border:1px solid rgba(200,196,255,.3);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);backdrop-filter:blur(8px)">&larr; Arooj&rsquo;s portfolio</a><script>if(window.self!==window.top){var a=document.currentScript.previousElementSibling;if(a)a.remove();}</script>
+</body>
+</html>

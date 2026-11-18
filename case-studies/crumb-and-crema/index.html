@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Crumb &amp; Crema Case Study</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Case study: brand, ordering website and café admin panel for Crumb & Crema, a concept specialty café in Dubai Marina and Brooklyn. By Arooj Fatima.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,0..100,0..1&family=Dancing+Script:wght@700&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+/* Layout: a long read in the café's own brand. Sky-blue opening like the website hero, then cream and white
+   chapters, one aubergine band for the admin panel. Screens run wider than the text column. A single light look. */
+:root {
+  --aub: #5E0B1F; --aub-2: #7A1830; --sky: #C7F3F7; --sky-2: #8FDDE5; --cream: #FBF3EA; --white: #FFFFFF;
+  --muted: #7A4E58; --line: #E9D9CC; --on-aub: #F1D7DD;
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --script: 'Dancing Script', 'Brush Script MT', cursive;
+  --sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+  --text: 680px; --wide: 1180px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cream); color: var(--aub); font-family: var(--sans); font-size: 17px; line-height: 1.65; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sky-2); outline-offset: 3px; }
+
+.band { padding-block: clamp(64px, 9vw, 120px); padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band--sky { background: var(--sky); }
+.band--white { background: var(--white); }
+.band--aub { background: var(--aub); color: var(--cream); }
+.wide { max-width: var(--wide); margin: 0 auto; }
+.col { max-width: var(--text); }
+.center { margin-inline: auto; }
+.stack { display: grid; gap: 22px; }
+
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--aub-2); }
+.band--aub .eyebrow { color: var(--sky); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.02; letter-spacing: -0.02em; font-variation-settings: 'SOFT' 100; }
+h1 { font-size: clamp(2.8rem, 1.4rem + 5.6vw, 5.8rem); }
+h2 { font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.5rem); }
+h3 { font-size: 1.5rem; line-height: 1.15; }
+.s { font-family: var(--script); font-weight: 700; color: var(--aub-2); letter-spacing: 0; font-size: 1.12em; display: inline-block; transform: rotate(-3deg); }
+.band--aub .s { color: var(--sky); }
+p { margin: 0; }
+.lede { font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); color: var(--muted); }
+.band--aub .lede { color: var(--on-aub); }
+.muted { color: var(--muted); }
+
+/* Opening */
+.open { padding-top: clamp(32px, 5vw, 56px); overflow: hidden; }
+.open__mark { display: flex; align-items: center; gap: 12px; margin-bottom: clamp(36px, 6vw, 64px); }
+.open__mark b { font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1; }
+.open__mark small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; margin-top: 4px; }
+.open__mark .by { margin-left: auto; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--aub-2); }
+.open__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
+.facts { margin: 0; display: grid; border-top: 2px solid var(--aub); }
+.facts div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(94, 11, 31, .2); }
+.facts dt { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding-top: 3px; }
+.facts dd { margin: 0; }
+@media (max-width: 860px) { .open__grid { grid-template-columns: minmax(0, 1fr); } .open__mark .by { display: none; } }
+.hero-shot { margin-top: clamp(44px, 7vw, 80px); }
+
+/* Screens */
+.shot { border-radius: 18px; overflow: hidden; border: 3px solid var(--aub); box-shadow: 0 10px 0 var(--aub); background: var(--white); max-width: 100%; }
+.band--aub .shot { border-color: #2A0710; box-shadow: 0 30px 70px rgba(0, 0, 0, .45); }
+figure { margin: 0; display: grid; gap: 16px; min-width: 0; }
+figcaption { font-size: 14.5px; color: var(--muted); max-width: 62ch; }
+.band--aub figcaption { color: var(--on-aub); }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); align-items: start; }
+@media (max-width: 860px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+.phones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
+@media (max-width: 860px) { .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.phone { border-radius: 30px; padding: 8px; background: #2A0710; box-shadow: 0 24px 50px rgba(63, 6, 20, .28); }
+.phone img { border-radius: 23px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; width: 100%; }
+.phone:nth-child(odd) { transform: rotate(-1.5deg); }
+.phone:nth-child(even) { transform: rotate(1.5deg) translateY(18px); }
+
+.chapter { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(28px, 6vw, 88px); align-items: start; }
+.chapter > .stack:first-child { position: sticky; top: 32px; }
+@media (max-width: 960px) { .chapter { grid-template-columns: minmax(0, 1fr); } .chapter > .stack:first-child { position: static; } }
+
+.points { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.points li { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 230px) minmax(0, 1fr); gap: 6px 28px; }
+.points b { font-weight: 700; }
+.points span { color: var(--muted); }
+@media (max-width: 640px) { .points li { grid-template-columns: minmax(0, 1fr); } }
+.band--aub .points, .band--aub .points li { border-color: rgba(199, 243, 247, .22); }
+.band--aub .points span { color: var(--on-aub); }
+
+/* Brand */
+.marks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 760px) { .marks { grid-template-columns: minmax(0, 1fr); } }
+.tile { border-radius: 22px; min-height: 230px; display: grid; place-items: center; padding: 24px; text-align: center; }
+.tile--cream { background: var(--white); border: 2px solid var(--line); }
+.tile--sky { background: var(--sky); }
+.tile--aub { background: var(--aub); color: var(--cream); }
+.lockup { display: grid; justify-items: center; gap: 6px; }
+.lockup b { font-family: var(--serif); font-weight: 600; font-size: 34px; line-height: 1; font-variation-settings: 'SOFT' 100; }
+.lockup small { font-size: 11px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; }
+.swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 640px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sw { display: grid; gap: 6px; }
+.sw i { display: block; aspect-ratio: 4 / 3; border-radius: 16px; border: 2px solid rgba(94, 11, 31, .12); max-width: 100%; }
+.sw b { font-size: 15px; }
+.sw span { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.type { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .type { grid-template-columns: minmax(0, 1fr); } }
+.type > div { border-top: 2px solid var(--aub); padding-top: 16px; display: grid; gap: 6px; align-content: start; }
+.type small { color: var(--muted); font-size: 14px; }
+.board { border-radius: 22px; overflow: hidden; border: 3px solid var(--aub); }
+
+/* Motion list */
+.motion { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; list-style: none; padding: 0; margin: 0; }
+@media (max-width: 860px) { .motion { grid-template-columns: minmax(0, 1fr); } }
+.motion li { background: var(--white); border: 2px solid var(--line); border-radius: 20px; padding: 20px; display: grid; gap: 6px; align-content: start; }
+.motion b { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
+.motion span { color: var(--muted); font-size: 15px; }
+
+/* Numbers + close */
+.nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(199, 243, 247, .25); }
+.nums div { padding: 24px 18px 0 0; display: grid; gap: 4px; }
+.nums b { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem); color: var(--sky); line-height: 1; font-variant-numeric: tabular-nums; }
+.nums span { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--on-aub); }
+@media (max-width: 760px) { .nums { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips span { border: 2px solid var(--aub); border-radius: 999px; padding: 5px 14px; font-size: 14px; font-weight: 700; background: var(--white); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2.5px solid var(--sky); color: var(--sky); }
+.btn--sky { background: var(--sky); color: var(--aub); box-shadow: 0 6px 0 var(--sky-2); }
+.btn:hover { transform: translateY(-2px); }
+.note { font-size: 14px; color: var(--on-aub); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .phone { transform: none !important; } }
+</style>
+
+</head>
+<body>
+<header class="band band--sky open">
+  <div class="wide">
+    <div class="open__mark">
+      <img src="brand/mark-dark.png" width="54" height="54" alt="">
+      <span><b>Crumb &amp; Crema</b><small>Café · Brunch</small></span>
+      <span class="by">Case study · Arooj Fatima</span>
+    </div>
+    <div class="open__grid">
+      <div class="stack" style="gap: 26px">
+        <span class="eyebrow">Brand · Ordering website · Café admin</span>
+        <h1>Good food. Great <span class="s">mood.</span></h1>
+        <p class="lede">Crumb &amp; Crema is a concept specialty café with one branch in Dubai Marina and one in Williamsburg, Brooklyn. I shaped its brand, then designed and built a playful ordering website and a custom admin panel that runs both cafés.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Brand designer, UI/UX designer and developer</dd></div>
+        <div><dt>Scope</dt><dd>Logo and identity, animated website with order-ahead, café admin panel</dd></div>
+        <div><dt>Built with</dt><dd>React, TypeScript, Next.js structure, Laravel API spec</dd></div>
+        <div><dt>Year</dt><dd>2026 · self-initiated concept</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-shot">
+      <div class="shot"><img src="shots/home-hero.jpg" alt="Crumb and Crema homepage: the headline Good food, Great mood beside a layered latte with pastries orbiting it, on a sky-blue background." width="1800" height="1125"></div>
+      <figcaption>The homepage hero. A layered latte pours itself, a heart pops onto the foam, and pastries orbit the glass in 3D, passing behind and in front of it.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="band">
+  <div class="col center stack">
+    <span class="eyebrow">The brief</span>
+    <h2>Two cities, <span class="s">one</span> mood</h2>
+    <p class="lede">A café lives or dies on its morning rush. Regulars want their usual fast, and new customers decide from a phone whether a place feels worth the walk.</p>
+    <p>I set three goals. The brand had to feel warm and fun without looking childish. The website had to feel like a delivery app, so ordering ahead takes three taps in either city, in AED or USD. And the owner needed one system for orders, the menu and both branches, instead of paying for a platform every month.</p>
+  </div>
+</section>
+
+<section class="band band--white">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Brand</span>
+      <h2>A cup that is <span class="s">also</span> a C</h2>
+      <p class="muted">The mark is a bold letter C that doubles as a coffee cup, with steam curling into a soft swirl. It works as a sign, a cup stamp and an app icon. I explored bright orange and retro directions before landing on a calmer, more grown-up palette that still has a wink in it.</p>
+    </div>
+    <div class="stack" style="gap: 44px">
+      <div class="marks">
+        <div class="tile tile--cream"><div class="lockup"><img src="brand/mark-dark.png" width="96" height="96" alt="Crumb and Crema cup-C mark"><b>Crumb &amp; Crema</b><small>Café · Brunch</small></div></div>
+        <div class="tile tile--aub"><div class="lockup"><img src="brand/mark-light.png" width="96" height="96" alt="The mark in cream on aubergine"><b>Crumb &amp; Crema</b><small>Café · Brunch</small></div></div>
+        <div class="tile tile--sky"><img src="brand/mark-dark.png" width="150" height="150" alt="The mark alone, used as the app icon"></div>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Colour</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#5E0B1F"></i><b>Aubergine</b><span>#5E0B1F · text, buttons, mark</span></div>
+          <div class="sw"><i style="background:#C7F3F7"></i><b>Sky</b><span>#C7F3F7 · hero, highlights</span></div>
+          <div class="sw"><i style="background:#FBF3EA"></i><b>Cream</b><span>#FBF3EA · page ground</span></div>
+          <div class="sw"><i style="background:#8FDDE5"></i><b>Steam</b><span>#8FDDE5 · swirls, focus rings</span></div>
+        </div>
+        <p class="muted">Aubergine on cream and on sky both pass WCAG AA for body text, so the playful colours never cost readability.</p>
+      </div>
+      <div class="stack" style="gap: 16px">
+        <h3>Type</h3>
+        <div class="type">
+          <div><span style="font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.05; font-variation-settings: 'SOFT' 100">Brunch is served</span><small>Fraunces, soft serif for the name and headlines</small></div>
+          <div><span style="font-family: var(--script); font-weight: 700; font-size: 2.3rem; line-height: 1; color: var(--aub-2)">great mood</span><small>Dancing Script for one hand-written word per headline</small></div>
+          <div><span style="font-size: 1.25rem; font-weight: 700; padding-top: .35em">Iced Spanish latte · AED 26</span><small>DM Sans for menus, prices and the admin panel</small></div>
+        </div>
+      </div>
+      <figure>
+        <div class="board"><img src="brand/board.jpg" alt="Brand applications: logo, colour swatches, app icon, hanging sign, takeaway cup, shopping bag, business cards, apron, menu cover, cup and saucer, round icon stickers and the Good Food Great Mood script." loading="lazy" width="1536" height="1024"></div>
+        <figcaption>The identity in use: hanging sign, cup, bag, cards, apron, menu and sticker icons. Mockups.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Website</span>
+      <h2>Ordering that feels like <span class="s">an app</span></h2>
+      <p class="lede">Pick your café, tap what you want and choose a pickup time. Everything else on the site exists to make you hungry first.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/menu-top.jpg" alt="Menu page with a Dubai and New York switch, a search box and category chips above photo cards for hot coffees." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>The menu. One switch changes the café, the currency (AED or USD) and the pickup branch everywhere. Categories stay pinned while you scroll.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/menu-sheet.jpg" alt="Product sheet for the Velvet latte with size, milk and extras options and an Add to order button showing the price." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Each drink opens a sheet with size, milk and extras. The price on the button updates as you choose, then the item spins into the cart.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/checkout.jpg" alt="Checkout with pickup time slots, a name field and a pay at the counter note beside the order summary." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Pickup slots are worked out from the café’s own local time and its current prep time, so Dubai and New York never show the wrong hours.</figcaption>
+      </figure>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/order.jpg" alt="Order tracker reading Ready, Sara, with a full coffee cup and three completed steps: received, brewing and ready." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>After ordering, a cup fills up as the barista moves the order along: received, brewing, ready. Confetti when it’s ready.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/home-cities.jpg" alt="Two city cards with live analog clocks, Dubai Marina open now and Williamsburg closed now, with skyline illustrations." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Live clocks for both cities show whether each café is open right now. Choosing one sets it for the whole order.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Two cities, two currencies</b><span>Every price is set per city in the admin panel, not converted, because a latte costs differently in Dubai and Brooklyn.</span></li>
+      <li><b>Local favourites</b><span>Karak chai is tagged as a Dubai favourite; the menu can carry different stars for each city.</span></li>
+      <li><b>Honest availability</b><span>Sold-out items grey out with a label and can’t be added, so no one pays for something the café can’t make.</span></li>
+      <li><b>Real photos, illustrated brand</b><span>Menu items use photography for appetite. Brand moments use custom illustrations that can move.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--white">
+  <div class="wide stack" style="gap: 40px">
+    <div class="col stack">
+      <span class="eyebrow">Motion</span>
+      <h2>Fun to <span class="s">scroll</span></h2>
+      <p class="lede">Every animation is drawn in code, so it stays sharp at any size and adds almost nothing to the download.</p>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/home-day.jpg" alt="A day at Crumb and Crema section showing 7:00, Doors open, with a sunrise sky and a latte illustration." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>“A day at Crumb &amp; Crema”: as you scroll, the sky moves from dawn to golden hour and the sun crosses it, from the 5am bake to iced coffee at 4pm.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/home-app.jpg" alt="Three taps, zero queue section with a phone mockup showing drink options." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>A phone mockup plays the ordering flow by itself, in step with the three steps beside it.</figcaption>
+      </figure>
+    </div>
+    <ul class="motion">
+      <li><b>Bouncy headline</b><span>Each letter drops in and wobbles; the script word gets a hand-drawn underline.</span></li>
+      <li><b>Tap anywhere</b><span>Clicking the hero bursts coffee beans, hearts and sprinkles from the pointer.</span></li>
+      <li><b>3D tilt cards</b><span>Menu cards lean towards the cursor and the photo zooms gently.</span></li>
+      <li><b>Fly to cart</b><span>Added items arc into the cart button, which bounces and updates its count.</span></li>
+      <li><b>Stamp card</b><span>The loyalty card stamps itself one cup at a time when it scrolls into view.</span></li>
+      <li><b>Reduced motion</b><span>Visitors who turn animation off in their system settings get a calm, still version of every section.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wide stack" style="gap: 40px">
+    <div class="col stack">
+      <span class="eyebrow">Mobile</span>
+      <h2>Made for the <span class="s">commute</span></h2>
+      <p class="lede">Most orders happen on the way in. On phones the product sheet slides up from the bottom and a floating bar keeps the order total one tap away.</p>
+    </div>
+    <div class="phones">
+      <div class="phone"><img src="shots/m-home.jpg" alt="Homepage on a phone" loading="lazy" width="780" height="1688"></div>
+      <div class="phone"><img src="shots/m-menu.jpg" alt="Menu on a phone" loading="lazy" width="780" height="1688"></div>
+      <div class="phone"><img src="shots/m-sheet.jpg" alt="Drink options sheet on a phone" loading="lazy" width="780" height="1688"></div>
+      <div class="phone"><img src="shots/m-admin.jpg" alt="Live orders board on a phone" loading="lazy" width="780" height="1688"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--aub">
+  <div class="wide stack" style="gap: 48px">
+    <div class="col stack">
+      <span class="eyebrow">Admin panel</span>
+      <h2>Runs <span class="s">both</span> cafés</h2>
+      <p class="lede">A custom panel for the owner and baristas: live orders, the menu, branch settings and the loyalty club, with no monthly platform fees. It is fully interactive and designed to connect to a Laravel API.</p>
+      <p class="lede">It is wired to the website. An order placed on the site appears on the barista’s board, and moving it there updates the customer’s tracker.</p>
+    </div>
+    <figure>
+      <div class="shot"><img src="shots/admin-orders.jpg" alt="Live orders board with columns New, Brewing, Ready for pickup and Collected, showing order cards with items, totals and action buttons." loading="lazy" width="1800" height="1125"></div>
+      <figcaption>The barista board. Orders move from New to Brewing to Ready by drag and drop or one tap. Cards turn red when an order runs late.</figcaption>
+    </figure>
+    <div class="pair">
+      <figure>
+        <div class="shot"><img src="shots/admin-dashboard.jpg" alt="Dashboard with orders today, sales, average order and queue, plus charts of orders by hour, bestsellers and sales over seven days." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Today at a glance: orders, sales, who is waiting, orders by hour in each café’s local time, and bestsellers with photos.</figcaption>
+      </figure>
+      <figure>
+        <div class="shot"><img src="shots/admin-add.jpg" alt="Add a new item drawer with photo upload, name, category, description, prices in AED and USD and badges." loading="lazy" width="1800" height="1125"></div>
+        <figcaption>Adding a menu item: photo, category, prices for each city and badges. It appears on the website straight away.</figcaption>
+      </figure>
+    </div>
+    <ul class="points">
+      <li><b>Roles</b><span>The owner sees both cafés with sales in USD; a barista sees only their own branch in its own currency.</span></li>
+      <li><b>Sold out in one tap</b><span>A switch per item greys it out on the website for the rest of the day.</span></li>
+      <li><b>Pause and pickup time</b><span>When the queue gets long, staff pause online orders or raise the pickup time, and checkout updates instantly.</span></li>
+      <li><b>Crumb Club</b><span>Loyalty members with stamp cards that work in both cities; the tenth drink is free.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--white">
+  <div class="wide chapter">
+    <div class="stack">
+      <span class="eyebrow">Build</span>
+      <h2>Fast, light and <span class="s">easy</span> to use</h2>
+      <p class="muted">Built with React and TypeScript in a Next.js structure, with the data layer specified as a Laravel API.</p>
+      <div class="chips"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Laravel</span><span>MySQL</span><span>SVG animation</span></div>
+    </div>
+    <ul class="points">
+      <li><b>Light illustrations</b><span>Drinks, pastries, skylines and the pouring latte are SVG drawn in code, so dozens of animated pieces cost a few kilobytes.</span></li>
+      <li><b>Optimised photos</b><span>Menu photos are cropped square, colour-matched and compressed to about 55 KB each. Admin uploads are resized in the browser before saving.</span></li>
+      <li><b>API ready</b><span>Menu, branches, orders, reports and members map to clear Laravel endpoints, with live order updates over websockets.</span></li>
+      <li><b>Accessibility</b><span>Keyboard-friendly sheets, drawers and boards, labelled forms with clear errors, visible focus and a reduced-motion version.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band--aub">
+  <div class="wide stack" style="gap: 40px">
+    <div class="nums">
+      <div><b>16</b><span>Menu items</span></div>
+      <div><b>2</b><span>Cities and currencies</span></div>
+      <div><b>5</b><span>Admin sections</span></div>
+      <div><b>3</b><span>Taps to order</span></div>
+    </div>
+    <div class="col stack">
+      <h2>One designer, <span class="s">logo to latte</span></h2>
+      <p class="lede">I design brands and build the custom websites that run them, admin panel included. If you are hiring, or want the same for your café or restaurant, I would love to hear from you.</p>
+      <div class="cta">
+        <a class="btn btn--sky" href="../../live/crumb-and-crema/index.html" target="_blank" rel="noopener">Open the live website</a>
+        <a class="btn" href="../../live/crumb-and-crema/index.html#admin" target="_blank" rel="noopener">Open the admin panel</a>
+      </div>
+      <p class="note">Crumb &amp; Crema is a self-initiated concept. The café, menu, prices, addresses, orders and members are sample content. Menu photos are placeholders for this concept, and the brand applications are mockups.</p>
+    </div>
+  </div>
+</section>
+
+<a href="../../index.html" style="position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(20,22,37,.9);color:#EDEBF7;font:600 13px/1 'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;text-decoration:none;border:1px solid rgba(200,196,255,.3);box-shadow:0 10px 30px -10px rgba(0,0,0,.6);backdrop-filter:blur(8px)">&larr; Arooj&rsquo;s portfolio</a><script>if(window.self!==window.top){var a=document.currentScript.previousElementSibling;if(a)a.remove();}</script>
+</body>
+</html>
