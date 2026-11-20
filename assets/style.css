@@ -419,3 +419,14 @@ footer a:hover { color: var(--on-night); }
 .cway__btns { display: flex; flex-wrap: wrap; gap: 8px; }
 .slots a { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid var(--lav); border-radius: 999px; padding: 11px 18px; font-size: 14.5px; color: inherit; text-decoration: none; font-weight: 600; }
 .slots a:hover { background: rgba(255, 255, 255, .06); }
+.fin-grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(18px, 3vw, 36px); align-items: start; margin-top: 8px; }
+.fin-shot { margin: 0; display: grid; gap: 10px; }
+.fin-shot img { width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .6); }
+.fin-shot figcaption { font-size: 13px; opacity: .7; }
+.fin-roles { min-width: 0; display: grid; gap: 14px; }
+.fin-roles h3 { margin: 0; font-size: 20px; }
+.fin-roles dl { margin: 0; display: grid; gap: 10px; }
+.fin-roles dt { font-weight: 700; color: var(--acc); }
+.fin-roles dd { margin: 2px 0 0; opacity: .85; }
+.fin-roles p { margin: 0; font-size: 14.5px; opacity: .8; }
+@media (max-width: 760px) { .fin-grid { grid-template-columns: 1fr; } .fin-shot { max-width: 340px; } }
