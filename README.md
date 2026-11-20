@@ -1,5 +1,7 @@
 # Arooj Fatima · Portfolio
 
+
+**Live site:** [aroojfatima-portfolio.netlify.app](https://aroojfatima-portfolio.netlify.app)
 Full-stack developer who designs. This is the source of my portfolio website: a multi-page static site with live, embedded versions of my projects, case studies, brand identities and an animated hero.
 
 - `index.html` · home, about, why work with me, contact
